@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 28
-  productGUID: 3be8a690880ffba41be5b795e0f1013b
+  productGUID: ae52fd23337174840aa789c8d6c60b9b
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: SpaceShooter
+  productName: SpaceShooterver1
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -722,14 +722,14 @@ PlayerSettings:
   editorAssembliesCompatibilityLevel: 1
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: SpaceShooter
+  metroPackageName: SpaceShooterver1
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: SpaceShooter
+  metroApplicationDescription: SpaceShooterver1
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -800,11 +800,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: ba39b0ff-e9d2-48a6-b33a-741cb81502f2
+  cloudProjectId: d01e1745-c49e-42e6-be7b-07b749efa693
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: SpaceShooter
-  organizationId: bonseol
+  projectName: SpaceShooterver1
+  organizationId: sonunituser
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
