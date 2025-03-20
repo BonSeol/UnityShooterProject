@@ -6,10 +6,6 @@ public class Player : MonoBehaviour
     // 플레이어 이동 속도
     [SerializeField] private float moveSpeed = 5.0f;
 
-    // 화면 경계 좌표 (플레이어가 화면을 벗어나지 않도록 제한)
-    private Vector2 minBounds;
-    private Vector2 maxBounds;
-
     // 애니메이터 컴포넌트
     Animator animator;
 
@@ -34,14 +30,6 @@ public class Player : MonoBehaviour
     {
         // 애니메이터 컴포넌트 가져오기
         animator = GetComponent<Animator>();
-
-        // 화면의 경계를 월드 좌표로 변환하여 설정
-        Camera cam = Camera.main;
-        Vector3 bottomLeft = cam.ViewportToWorldPoint(new Vector3(0, 0, 0));
-        Vector3 topRight = cam.ViewportToWorldPoint(new Vector3(1, 1, 0));
-
-        minBounds = new Vector2(bottomLeft.x, bottomLeft.y);
-        maxBounds = new Vector2(topRight.x, topRight.y);
     }
 
     private void Update()
@@ -91,10 +79,6 @@ public class Player : MonoBehaviour
         float moveY = moveSpeed * Time.deltaTime * movement.y;
 
         Vector3 newPosition = transform.position + new Vector3(moveX, moveY, 0);
-
-        // 화면 경계 내에서만 이동하도록 제한
-        newPosition.x = Mathf.Clamp(newPosition.x, minBounds.x, maxBounds.x);
-        newPosition.y = Mathf.Clamp(newPosition.y, minBounds.y, maxBounds.y);
 
         if (movement != Vector2.zero)
             transform.position = newPosition;
