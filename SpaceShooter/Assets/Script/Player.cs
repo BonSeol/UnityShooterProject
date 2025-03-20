@@ -53,15 +53,6 @@ public class Player : MonoBehaviour
         float moveX = moveSpeed * Time.deltaTime * movement.x; // 좌우 이동
         float moveY = moveSpeed * Time.deltaTime * movement.y; // 상하 이동
 
-        /*
-        // 이동 방향에 따른 애니메이션 변경
-        if (movement != Vector2.zero)
-        {
-            animator.SetFloat("Horizontal", movement.x);
-            animator.SetFloat("Vertical", movement.y);
-        }
-        */
-
         // 새 위치 계산: 현재 위치에 이동 값을 더함
         Vector3 newPosition = transform.position + new Vector3(moveX, moveY, 0);
 
@@ -81,10 +72,31 @@ public class Player : MonoBehaviour
     void UpdateAnimation()
     {
         if (movement != Vector2.zero)
-            animator.Play("Player_Walk");
+        {
+            if (movement.y > 0) // 위쪽 이동
+            {
+                if (movement.x > 0) animator.Play("Pwalk_up_right");
+                else if (movement.x < 0) animator.Play("Pwalk_up_left");
+                else animator.Play("Pwalk_up");
+            }
+            else if (movement.y < 0) // 아래쪽 이동
+            {
+                if (movement.x > 0) animator.Play("Pwalk_down_right");
+                else if (movement.x < 0) animator.Play("Pwalk_down_left");
+                else animator.Play("Pwalk_down");
+            }
+            else // 좌우 이동
+            {
+                if (movement.x > 0) animator.Play("Pwalk_right");
+                else animator.Play("Pwalk_left");
+            }
+        }
         else
-            animator.Play("Player_Idle");
+        {
+            animator.Play("player_idle"); // 가만히 있을 때
+        }
     }
+
 
     // 입력에 따라 플레이어의 이동 방향 설정
     void OnMove(InputValue value)
