@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fa15c7e739adcce4e86993c301e21d69
+guid: 071469b741beb7d40b6967ac5563a420
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -182,6 +182,42 @@ TextureImporter:
   - first:
       213: -8277997623292088129
     second: Astronaut_Graphic_59
+  - first:
+      213: 7076388002010315975
+    second: Astronaut_Graphic_60
+  - first:
+      213: -8996581506415797072
+    second: Astronaut_Graphic_61
+  - first:
+      213: 4565330976345745652
+    second: Astronaut_Graphic_62
+  - first:
+      213: -9014819164304486095
+    second: Astronaut_Graphic_63
+  - first:
+      213: 3544469553926888077
+    second: Astronaut_Graphic_64
+  - first:
+      213: 1867658505105051633
+    second: Astronaut_Graphic_65
+  - first:
+      213: 1229785854458021856
+    second: Astronaut_Graphic_66
+  - first:
+      213: 5759529853487133276
+    second: Astronaut_Graphic_67
+  - first:
+      213: -3852492625528849775
+    second: Astronaut_Graphic_68
+  - first:
+      213: 5612318582443889941
+    second: Astronaut_Graphic_69
+  - first:
+      213: -7916236112220561730
+    second: Astronaut_Graphic_70
+  - first:
+      213: -7648516868798712926
+    second: Astronaut_Graphic_71
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -252,7 +288,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -288,19 +324,6 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1649,10 +1672,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 83b0f41682176a04ebbabefc24f41495
-      internalID: -1739301772
+      spriteID: 7cc39a04561643260800000000000000
+      internalID: 7076388002010315975
       vertices: []
       indices: 
       edges: []
@@ -1671,10 +1694,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 420430b0733aee046a9d057d3fad8f49
-      internalID: -1907914658
+      spriteID: 0bcdc3d29c8b52380800000000000000
+      internalID: -8996581506415797072
       vertices: []
       indices: 
       edges: []
@@ -1693,10 +1716,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b3d15d3c75cbed54188f595e0cbaffe7
-      internalID: -126086731
+      spriteID: 4f8ec27b5505b5f30800000000000000
+      internalID: 4565330976345745652
       vertices: []
       indices: 
       edges: []
@@ -1715,10 +1738,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ab05b49afead0e24788b29dad2fb9bc9
-      internalID: -1419629109
+      spriteID: 1315f3d8bbde4e280800000000000000
+      internalID: -9014819164304486095
       vertices: []
       indices: 
       edges: []
@@ -1737,10 +1760,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 2bac2047d6303c841861c5d1ead521b7
-      internalID: 1600641628
+      spriteID: d8adff6a74c703130800000000000000
+      internalID: 3544469553926888077
       vertices: []
       indices: 
       edges: []
@@ -1759,10 +1782,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: a121c7e3a856f86479d993d83acefe74
-      internalID: 180145280
+      spriteID: 1ff068ed3814be910800000000000000
+      internalID: 1867658505105051633
       vertices: []
       indices: 
       edges: []
@@ -1781,10 +1804,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 90e34e58e35812b4098e20e99c9a3f7d
-      internalID: 109464218
+      spriteID: 0e745cc08b3111110800000000000000
+      internalID: 1229785854458021856
       vertices: []
       indices: 
       edges: []
@@ -1803,10 +1826,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: f93593e5f09cfde49a27ef827bdebac5
-      internalID: 92281782
+      spriteID: c52bb5ee2e5fdef40800000000000000
+      internalID: 5759529853487133276
       vertices: []
       indices: 
       edges: []
@@ -1825,10 +1848,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ff73dde37b3bacd4f9996e529fb1fa6d
-      internalID: 178700566
+      spriteID: 19a7a835e52398ac0800000000000000
+      internalID: -3852492625528849775
       vertices: []
       indices: 
       edges: []
@@ -1847,10 +1870,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 12028d15dceaa95459dc4966b38d45ab
-      internalID: 330135754
+      spriteID: 51554e0f306f2ed40800000000000000
+      internalID: 5612318582443889941
       vertices: []
       indices: 
       edges: []
@@ -1869,10 +1892,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 3e92049079f84884cb3c23aae4bc3f23
-      internalID: 1173675186
+      spriteID: ebe59fca231e32290800000000000000
+      internalID: -7916236112220561730
       vertices: []
       indices: 
       edges: []
@@ -1891,10 +1914,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 400bc9da99815164da7ac6299ed3b878
-      internalID: -1586126979
+      spriteID: 2a37ba07e620bd590800000000000000
+      internalID: -7648516868798712926
       vertices: []
       indices: 
       edges: []
@@ -1903,7 +1926,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 9ff03f4d3bffa2a40bbc717b7cf41758
+    spriteID: 32f7894cf1cb6c14fab528c185304b6e
     internalID: 0
     vertices: []
     indices: 
@@ -1970,19 +1993,19 @@ TextureImporter:
       Astronaut_Graphic_58: -8686276320093672918
       Astronaut_Graphic_59: -8277997623292088129
       Astronaut_Graphic_6: 6679548054188201263
-      Astronaut_Graphic_60: -1739301772
-      Astronaut_Graphic_61: -1907914658
-      Astronaut_Graphic_62: -126086731
-      Astronaut_Graphic_63: -1419629109
-      Astronaut_Graphic_64: 1600641628
-      Astronaut_Graphic_65: 180145280
-      Astronaut_Graphic_66: 109464218
-      Astronaut_Graphic_67: 92281782
-      Astronaut_Graphic_68: 178700566
-      Astronaut_Graphic_69: 330135754
+      Astronaut_Graphic_60: 7076388002010315975
+      Astronaut_Graphic_61: -8996581506415797072
+      Astronaut_Graphic_62: 4565330976345745652
+      Astronaut_Graphic_63: -9014819164304486095
+      Astronaut_Graphic_64: 3544469553926888077
+      Astronaut_Graphic_65: 1867658505105051633
+      Astronaut_Graphic_66: 1229785854458021856
+      Astronaut_Graphic_67: 5759529853487133276
+      Astronaut_Graphic_68: -3852492625528849775
+      Astronaut_Graphic_69: 5612318582443889941
       Astronaut_Graphic_7: 4776468318849884979
-      Astronaut_Graphic_70: 1173675186
-      Astronaut_Graphic_71: -1586126979
+      Astronaut_Graphic_70: -7916236112220561730
+      Astronaut_Graphic_71: -7648516868798712926
       Astronaut_Graphic_8: 3054535267394245518
       Astronaut_Graphic_9: -2638675957708666808
   mipmapLimitGroupName: 
