@@ -8,8 +8,6 @@ public class Altar : MonoBehaviour
     public void ActivateFlame()
     {
         if (flameObject != null)
-        {
             flameObject.SetActive(true); // 불꽃 오브젝트 활성화
-        }
     }
 }

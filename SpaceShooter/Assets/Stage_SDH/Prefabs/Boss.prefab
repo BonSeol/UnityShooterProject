@@ -198,8 +198,8 @@ MonoBehaviour:
   firePoint: {fileID: 6648964070848718288}
   flashEffect: {fileID: 3662468898226178345}
   bulletSpeed: 5
-  followRange: 10
-  shootRange: 8
+  followRange: 9
+  shootRange: 7
   moveSpeed: 3
   shootYOffset: 1.5
   maxHp: 500
@@ -207,6 +207,8 @@ MonoBehaviour:
   shootSound: {fileID: 8300000, guid: d699f213ce90a984499373f1610266b5, type: 3}
   IsSlowed: 0
   screamSound: {fileID: 8300000, guid: 392531f704193074e9d31ac463a31844, type: 3}
+  bulletPrefab2: {fileID: 3070488127123391944, guid: e5c425e0300c7254580f43c937ad3e10, type: 3}
+  bulletPrefab3: {fileID: 6193499813434132531, guid: 55d290369ebf37b48ab195da21def90a, type: 3}
 --- !u!114 &3662468898226178345
 MonoBehaviour:
   m_ObjectHideFlags: 0

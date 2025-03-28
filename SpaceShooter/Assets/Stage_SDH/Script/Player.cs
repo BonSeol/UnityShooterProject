@@ -165,6 +165,7 @@ public class Player : MonoBehaviour
                 if (altarScript != null)
                 {
                     AltarCount++;
+                    gemCount--;
                     audioSource.PlayOneShot(altarSound);
                     altarScript.ActivateFlame(); // ºÒ²É È°¼ºÈ­
                 }

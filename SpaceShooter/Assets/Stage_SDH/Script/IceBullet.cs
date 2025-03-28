@@ -5,7 +5,7 @@ public class IceBullet : PlayerBullet
 {
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        base.OnTriggerEnter2D(collision); 
+        base.OnTriggerEnter2D(collision);
 
         if (collision.CompareTag("Monster"))
         {

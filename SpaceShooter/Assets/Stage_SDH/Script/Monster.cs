@@ -17,8 +17,6 @@ public class Monster : MonoBehaviour
     [SerializeField] protected float shootInterval = 0.5f; // 공격 간격
 
     [SerializeField] protected AudioClip shootSound;
-    protected AudioSource audioSource;
-
     public bool IsSlowed = false;
     protected int hp; // 현재 체력
     protected float lastShootTime = 0f; // 마지막 공격 시간
@@ -27,11 +25,11 @@ public class Monster : MonoBehaviour
     protected Animator animator; // 애니메이터
     protected Rigidbody2D rb; // 물리 엔진
     protected SpriteRenderer spriteRenderer; // 스프라이트 렌더러
-
+    protected AudioSource audioSource;
     private float nextDirectionChangeTime = 0f; // 방향 변경 시간
     private float randomMoveTime = 0f; // 랜덤 이동 지속 시간
     private bool isMoving = true; // 이동 중인지 여부
-    private bool isSpawning = true; // 몬스터 생성 중 여부
+    private bool isSpawning = false; // 몬스터 생성 중 여부
     private Vector2 moveDirection; // 현재 이동 방향
     private Vector2 lastDirection; // 마지막 이동 방향
     private Coroutine slowEffectCoroutine; // 속도 감소 효과 코루틴
@@ -59,12 +57,12 @@ public class Monster : MonoBehaviour
     private IEnumerator EndSpawnAnimation()
     {
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length); // 애니메이션 끝날 때까지 대기
-        isSpawning = false; // 생성 완료
+        isSpawning = true; // 생성 완료
     }
 
     protected virtual void Update()
     {
-        if (isSpawning || player == null || hp <= 0 || isDead)
+        if (!isSpawning || player == null || hp <= 0 || isDead)
             return;
 
         float distance = Vector2.Distance(transform.position, player.position); // 플레이어와의 거리 계산
@@ -84,18 +82,6 @@ public class Monster : MonoBehaviour
         {
             RandomMove();
         }
-    }
-
-    // 이동 속도를 가져오는 메서드
-    public float GetMoveSpeed()
-    {
-        return moveSpeed;
-    }
-
-    // 이동 속도를 설정하는 메서드
-    public void SetMoveSpeed(float newSpeed)
-    {
-        moveSpeed = newSpeed;
     }
 
     protected virtual void FollowPlayer()

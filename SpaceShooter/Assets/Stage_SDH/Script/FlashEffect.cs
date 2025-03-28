@@ -3,56 +3,44 @@ using UnityEngine;
 
 public class FlashEffect : MonoBehaviour
 {
-    [SerializeField] private Material flashMaterial;
+    [SerializeField] private Material flashMaterial; // 깜빡임 효과에 사용할 머티리얼
+    [SerializeField] private float duration; // 깜빡임 지속 시간
 
-    [SerializeField] private float duration;
-
-    // The SpriteRenderer that should flash.
-    private SpriteRenderer spriteRenderer;
-
-    // The material that was in use, when the script started.
-    private Material originalMaterial;
-
-    // The currently running coroutine.
-    private Coroutine flashRoutine;
+    private SpriteRenderer spriteRenderer; // 깜빡임 효과를 적용할 스프라이트 렌더러
+    private Material originalMaterial; // 원래 사용 중인 머티리얼 저장
+    private Coroutine flashRoutine; // 현재 실행 중인 코루틴
 
     void Start()
     {
-        // Get the SpriteRenderer to be used,
-        // alternatively you could set it from the inspector.
+        // 현재 오브젝트의 SpriteRenderer 컴포넌트를 가져옴
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        // Get the material that the SpriteRenderer uses, 
-        // so we can switch back to it after the flash ended.
+        // 원래 사용하던 머티리얼 저장 (깜빡임 효과 후 복원하기 위함)
         originalMaterial = spriteRenderer.material;
     }
 
     public void Flash()
     {
-        // If the flashRoutine is not null, then it is currently running.
+        // 만약 이미 깜빡임 코루틴이 실행 중이라면 중지
         if (flashRoutine != null)
-        {
-            // In this case, we should stop it first.
-            // Multiple FlashRoutines the same time would cause bugs.
             StopCoroutine(flashRoutine);
-        }
-
-        // Start the Coroutine, and store the reference for it.
+        
+        // 새로운 깜빡임 코루틴 실행 및 저장
         flashRoutine = StartCoroutine(FlashRoutine());
     }
-    
+
     private IEnumerator FlashRoutine()
     {
-        // Swap to the flashMaterial.
+        // 깜빡임 머티리얼로 변경
         spriteRenderer.material = flashMaterial;
 
-        // Pause the execution of this function for "duration" seconds.
+        // 설정된 지속 시간만큼 대기
         yield return new WaitForSeconds(duration);
 
-        // After the pause, swap back to the original material.
+        // 원래 머티리얼로 복원
         spriteRenderer.material = originalMaterial;
 
-        // Set the routine to null, signaling that it's finished.
+        // 코루틴 실행 완료 표시
         flashRoutine = null;
     }
 }

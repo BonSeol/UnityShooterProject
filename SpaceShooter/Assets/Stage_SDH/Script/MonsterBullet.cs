@@ -27,11 +27,10 @@ public class MonsterBullet : MonoBehaviour
 
             // Player의 TakeDamage 호출
             Player player = collision.GetComponent<Player>();
-            if (player != null)
-            {
-                player.TakeDamage(10); // 기본 데미지 10
-            }
 
+            if (player != null)
+                player.TakeDamage(damage); // 플레이어 데미지 줌
+            
             // 총알이 무엇인가에 충돌하면 총알 삭제
             Destroy(gameObject, 0.2f);
         }
