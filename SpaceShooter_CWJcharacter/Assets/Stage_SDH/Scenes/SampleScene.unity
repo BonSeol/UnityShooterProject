@@ -472,6 +472,7 @@ MonoBehaviour:
   firePos: {fileID: 901946017}
   isPlayerEquip: 0
   Playerscript: {fileID: 576521761}
+  Playerobject: {fileID: 576521754}
   gunLayer: 0
 --- !u!1 &266707034 stripped
 GameObject:
@@ -642,7 +643,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2277354240741712088, guid: 071469b741beb7d40b6967ac5563a420, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1340,6 +1341,7 @@ MonoBehaviour:
   firePos: {fileID: 916731098}
   isPlayerEquip: 0
   Playerscript: {fileID: 576521761}
+  Playerobject: {fileID: 0}
   gunLayer: 0
 --- !u!212 &1178096689
 SpriteRenderer:
@@ -1888,6 +1890,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5813310898700791608, guid: 1dd2fccfccde4454390c8b71f70c4256, type: 3}
+      propertyPath: Playerobject
+      value: 
+      objectReference: {fileID: 576521754}
     - target: {fileID: 5813310898700791608, guid: 1dd2fccfccde4454390c8b71f70c4256, type: 3}
       propertyPath: Playerscript
       value: 

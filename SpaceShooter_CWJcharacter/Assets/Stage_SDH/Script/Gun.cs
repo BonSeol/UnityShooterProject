@@ -7,21 +7,20 @@ public class Gun : MonoBehaviour
     public GameObject firePos;  // 총알 발사 위치
     public bool isPlayerEquip = false; //총 여부를 확인
     public Player Playerscript;
+    public GameObject Playerobject;
     public int gunLayer = 0;
     void Update()
     {
-        if (Playerscript.gunLayer != null)
             gunLayer = Playerscript.gunLayer;
-        else
-            Debug.Log("gunLayer is Null");
-
+            
+        
         if (gunLayer == 0)
         {
-                this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
+                this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = Playerobject.gameObject.GetComponent<SpriteRenderer>().sortingOrder - 1;
         }
         else if (gunLayer == 1)
         {
-                this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 2;
+                this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = Playerobject.gameObject.GetComponent<SpriteRenderer>().sortingOrder + 1;
         }
 
 
