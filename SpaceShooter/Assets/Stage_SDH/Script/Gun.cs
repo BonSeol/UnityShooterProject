@@ -5,16 +5,22 @@ public class Gun : MonoBehaviour
     public GameObject bulletPrefab;  // 총알 프리팹
     public float bulletSpeed = 10f;  // 총알 속도
     public GameObject firePos;  // 총알 발사 위치
+    public bool isPlayerEquip = false; //총 여부를 확인
+
 
     void Update()
     {
-        // 마우스 위치를 기준으로 총 회전
-        AimAtMouse();
 
-        // 마우스 왼쪽 버튼 클릭 시 총을 쏘기
-        if (Input.GetMouseButtonDown(0)) // 왼쪽 마우스 버튼
+        if(isPlayerEquip==true)
         {
-            Fire();
+            // 마우스 위치를 기준으로 총 회전
+            AimAtMouse();
+
+            // 마우스 왼쪽 버튼 클릭 시 총을 쏘기
+            if (Input.GetMouseButtonDown(0)) // 왼쪽 마우스 버튼
+            {
+                Fire();
+            }
         }
     }
 

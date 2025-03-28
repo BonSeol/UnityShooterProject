@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class Player : MonoBehaviour
 {
@@ -29,20 +30,38 @@ public class Player : MonoBehaviour
 
 
 
-    public bool isPlayerinside = false; // 오브젝트 구역에 들어갔는지 확인하는 변수
+    public bool isPlayerinside_Object = false; // 오브젝트 구역에 들어갔는지 확인하는 변수
+    public bool isPlayerinside_Weapon = false; // 오브젝트 구역에 들어갔는지 확인하는 변수
     public Collider2D currentObject; // 현재 충돌한 오브젝트를 저장할 변수
+    public Collider2D currentObject_Weapon; // 현재 충돌한 오브젝트를 저장할 변수
     private GameObject currentGun; // 현재 장착된 무기
 
+    public float dashDistance = 5f; // 대쉬 속도 
+    public float dashTime = 0.2f;   // 대쉬하는데 걸리는시간
+    public float dashCooldown = 3f; // 대쉬 쿨타임
+    private bool isDashing = false;
+    private float lastDashTime = 0f; // 마지막 대쉬 시간
+
+    private float gun1_Active = 0;
+    private float gun2_Active = 0;
 
     void Start()
     {
         // 애니메이터 컴포넌트 가져오기
         animator = GetComponent<Animator>();
 
-        // 처음에는 weapon1을 장착
+        // 처음에는 gun1을 장착
         currentGun = gun1;
         gun1.SetActive(true);
+        gun1_Active = 1;
         gun2.SetActive(false);
+        gun2_Active = 0;
+
+        //총1,총2 총확인 
+        Gun ScriptGun1 = gun1.GetComponent<Gun>();
+        ScriptGun1.isPlayerEquip = true;
+        Gun ScriptGun2 = gun2.GetComponent<Gun>();
+        ScriptGun2.isPlayerEquip = true;
 
     }
 
@@ -109,15 +128,21 @@ public class Player : MonoBehaviour
 
         // 애니메이션 상태 업데이트
         UpdateAnimation();
+
     }
 
     // 이동 상태에 따른 애니메이션 변경
     void UpdateAnimation()
     {
-        if (movement != Vector2.zero)
+        if (isDashing)
+            animator.Play("Player_Dash");
+        else if (movement != Vector2.zero)
             animator.Play("Player_Walk");
         else
             animator.Play("Player_Idle");
+
+
+
     }
 
     // Player Input 컴포넌트에서 Move 입력이 감지되면 OnMove() 함수를 자동으로 호출
@@ -127,16 +152,89 @@ public class Player : MonoBehaviour
         movement = value.Get<Vector2>();
     }
 
-    void OnInteract(InputValue Button)
+    void OnInteract(InputValue value)
     {
         // 오브젝트 구역에 들어왔는지, 오브젝트를 저장됐는지 이중체크
-        if (isPlayerinside && currentObject != null)
+        if (isPlayerinside_Object && currentObject != null)
         {
             Destroy(currentObject.gameObject);
             currentObject = null; // 저장한 오브젝트 초기화 
-            isPlayerinside = false;
+            isPlayerinside_Object = false; 
         }
-        Debug.Log("플레이어가 상호작용 버튼을 눌렀습니다123.");
+
+
+        if (isPlayerinside_Weapon && currentObject_Weapon != null)
+        {
+            //무기 확인 
+            if (gun1_Active == 1 && gun2_Active ==0 )
+            {
+                //기존 무기 버리기 
+                Gun ScriptGun = currentGun.GetComponent<Gun>();                     
+                ScriptGun.isPlayerEquip = false;                                                        
+                currentGun.tag = "Weapon";                                                              
+                Instantiate(currentGun, transform.position, Quaternion.identity);   
+                
+                // 오브젝트를 무기로 장착
+                GameObject newWeapon = Instantiate(currentObject_Weapon.gameObject, transform.position, Quaternion.identity);
+                Destroy(currentObject_Weapon.gameObject);
+                gun1.SetActive(false);
+
+
+                // 새로운 무기로 설정
+                gun1 = newWeapon; 
+                gun1.tag = "Gun";
+                Gun ScriptGun1 = gun1.GetComponent<Gun>();
+                ScriptGun1.isPlayerEquip = true;
+                gun1.SetActive(false);
+                Debug.Log("무기를 장착했습니다: " + currentGun.name);
+
+                // 현재 오브젝트 초기화              
+                currentObject_Weapon = null; // 저장한 오브젝트 초기화 
+                isPlayerinside_Object = false;
+            }
+            if (gun1_Active == 0 && gun2_Active == 1)
+            {
+                // 기존 무기 버리기 
+                Gun ScriptGun = currentGun.GetComponent<Gun>();
+                ScriptGun.isPlayerEquip = false;
+                currentGun.tag = "Weapon";
+                Instantiate(currentGun, transform.position, Quaternion.identity);
+
+                // 오브젝트를 무기로 장착
+                GameObject newWeapon = Instantiate(currentObject_Weapon.gameObject, transform.position, Quaternion.identity);
+                Destroy(currentObject_Weapon.gameObject);
+                gun2.SetActive(false);
+
+                // 새로운 무기로 설정
+                gun2 = newWeapon;
+                gun2.tag = "Gun";
+                Gun ScriptGun2 = gun2.GetComponent<Gun>();
+                ScriptGun2.isPlayerEquip = true;
+                gun2.SetActive(false);
+                Debug.Log("무기를 장착했습니다: " + currentGun.name);
+
+                // 오브젝트 초기화
+                currentObject_Weapon = null;
+                isPlayerinside_Weapon = false; // 상태 초기화
+            }
+        }
+    }
+
+    void OnSprint(InputValue value)
+    {
+        // 대쉬하는 조건 확인 
+        if (value.isPressed && !isDashing && Time.time >= lastDashTime + dashCooldown)
+        {
+            //코루틴으로 대쉬 사용 
+            StartCoroutine(Dash());
+        }
+        // 대쉬 쿨타임 
+        if (value.isPressed && !isDashing && Time.time < lastDashTime + dashCooldown)
+        {
+            float remainingTime = (lastDashTime + dashCooldown) - Time.time;
+            Debug.Log(remainingTime.ToString("F2") + "초 남았습니다.");
+        }
+
     }
 
 
@@ -147,10 +245,19 @@ public class Player : MonoBehaviour
         if (collision.CompareTag("Object"))
         {
             Debug.Log("상호작용 가능한 오브젝트와 트리거가 발생했습니다2.");
-            isPlayerinside = true;
-            currentObject = collision; //현재 오브젝트에 저장 
-            Debug.Log(isPlayerinside);
+            isPlayerinside_Object = true;       //오브젝트 구역 확인
+            currentObject = collision;          //현재 오브젝트에 저장 
+            Debug.Log(isPlayerinside_Object);
         }
+
+        else if(collision.CompareTag("Weapon"))
+        {
+            Debug.Log("상호작용 가능한 오브젝트와 트리거가 발생했습니다2.");
+            isPlayerinside_Weapon = true;       //오브젝트 구역 확인
+            currentObject_Weapon = collision;          //현재 오브젝트에 저장 
+            Debug.Log(isPlayerinside_Weapon);
+        }
+
     }
 
     public void OnTriggerExit2D(Collider2D collision)
@@ -159,13 +266,20 @@ public class Player : MonoBehaviour
         if (collision.CompareTag("Object"))
         {
             Debug.Log("상호작용 가능한 오브젝트와 트리거가 발생했습니다3.");
-            isPlayerinside = false;
-            currentObject = null; // 구역 밖으로 나갔으므로 저장한 오브젝트 삭제
-            Debug.Log(isPlayerinside);
+            isPlayerinside_Object = false;     // 오브젝트 구역 확인 
+            currentObject = null;       // 구역 밖으로 나갔으므로 저장한 오브젝트 삭제
+            Debug.Log(isPlayerinside_Object);
         }
+        // 트리거된 오브젝트의 태그를 확인
+        else if (collision.CompareTag("Weapon"))
+        {
+            Debug.Log("상호작용 가능한 오브젝트와 트리거가 발생했습니다2.");
+            isPlayerinside_Weapon = false;       //오브젝트 구역 확인
+            currentObject_Weapon = null;          //현재 오브젝트에 저장 
+            Debug.Log(isPlayerinside_Weapon);
+        }
+
     }
-
-
 
 
     void SwitchGun(int gunNumber)
@@ -173,16 +287,48 @@ public class Player : MonoBehaviour
         if (gunNumber == 1)
         {
             currentGun.SetActive(false);
+            gun2_Active = 0;
             currentGun = gun1;
             currentGun.SetActive(true);
+            gun1_Active = 1;
         }
         else if (gunNumber == 2)
         {
-            currentGun.SetActive(false);
-            currentGun = gun2;
-            currentGun.SetActive(true);
+            if(gun2!= null)
+            {
+                currentGun.SetActive(false);
+                gun1_Active = 0; 
+                currentGun = gun2;
+                currentGun.SetActive(true);
+                gun2_Active = 1;
+            }
+            return;
         }
     }
 
+
+
+    private IEnumerator Dash()
+    {
+        isDashing = true;
+        lastDashTime = Time.time;   // 대쉬를 사용한 시간을 기록
+        animator.Play("Player_Idle");
+
+
+        Vector3 dashDirection = new Vector3(movement.x, movement.y).normalized;
+        Vector3 startPosition = transform.position;
+        Vector3 targetPosition = startPosition + dashDirection * dashDistance;
+
+        float elapsedTime = 0f;
+
+        while (elapsedTime < dashTime)
+        {
+            transform.position = Vector3.Lerp(startPosition, targetPosition, (elapsedTime / dashTime));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        transform.position = targetPosition;
+        isDashing = false;
+    }
 
 }
