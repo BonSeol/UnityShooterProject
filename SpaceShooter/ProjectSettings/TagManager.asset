@@ -9,6 +9,8 @@ TagManager:
   - Gem
   - Altar
   - Door
+  - Weapon
+  - Object
   layers:
   - Default
   - TransparentFX

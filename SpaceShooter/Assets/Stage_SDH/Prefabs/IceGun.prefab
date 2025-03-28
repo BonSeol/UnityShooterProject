@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 8498213523764854485}
   - component: {fileID: 2028192713884947332}
   - component: {fileID: 1117778451443071143}
+  - component: {fileID: 1514231577941450470}
   m_Layer: 0
   m_Name: IceGun
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,6 +106,11 @@ MonoBehaviour:
   bulletPrefab: {fileID: 3017617063552991478, guid: eff7c040f038b9048b8d41a527df127f, type: 3}
   bulletSpeed: 10
   firePos: {fileID: 9221276873800604669}
+  isPlayerEquip: 0
+  Playerscript: {fileID: 0}
+  Playerobject: {fileID: 0}
+  gunLayer: 0
+  player_interaction: 0
   shootSound: {fileID: 8300000, guid: fc582df3572b64d279888946675505af, type: 3}
 --- !u!82 &1117778451443071143
 AudioSource:
@@ -203,6 +209,43 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!70 &1514231577941450470
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8386480767882998671}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.17970926, y: 0.19768022}
+  m_Size: {x: 0.5625, y: 0.39583334}
+  m_Direction: 0
 --- !u!1 &9221276873800604669
 GameObject:
   m_ObjectHideFlags: 0

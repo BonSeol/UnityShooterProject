@@ -7,14 +7,15 @@ public class Player : MonoBehaviour
     // 플레이어 이동 속도
     [SerializeField] private float moveSpeed = 5.0f;
 
+    // 플레이어 HP
+    [SerializeField] private int Hp = 300;
+    private bool isDead = false; // Die 상태를 나타내는 플래그
+    
     // 애니메이터 컴포넌트
     Animator animator;
 
     // 플레이어 이동 방향
     private Vector2 movement = Vector2.zero;
-
-    // 플래시 이펙트
-    [SerializeField] protected FlashEffect flashEffect;
 
     // 총 및 총구 위치 오브젝트
     [SerializeField] private GameObject gun1;
@@ -31,35 +32,48 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject gunPos_DownLeft;
     [SerializeField] private GameObject gunPos_DownRight;
 
-    // 오디오 관련 변수
-    [SerializeField] private AudioClip gemPickupSound; // Gem 획득 사운드
-    [SerializeField] private AudioClip altarSound; // 재단 활성화 사운드
-    private AudioSource audioSource;
-
-    private bool isPlayerinside = false; // 오브젝트 구역에 들어갔는지 확인하는 변수
+    public bool isPlayerinside_Object = false; // 오브젝트 구역에 들어갔는지 확인하는 변수
+    public bool isPlayerinside_Weapon = false; // 오브젝트 구역에 들어갔는지 확인하는 변수
     public Collider2D currentObject; // 현재 충돌한 오브젝트를 저장할 변수
+    public Collider2D currentObject_Weapon; // 현재 충돌한 오브젝트를 저장할 변수
     private GameObject currentGun; // 현재 장착된 무기
-                                   // 트리거 영역에 들어갈 때 호출됩니다.
+
+    public float dashDistance = 5f; // 대쉬 속도 
+    public float dashTime = 0.2f;   // 대쉬하는데 걸리는시간
+    public float dashCooldown = 3f; // 대쉬 쿨타임
+    private bool isDashing = false;
+    private float lastDashTime = 0f; // 마지막 대쉬 시간
+
+    private float gun1_Active = 0;
+    private float gun2_Active = 0;
+
+    public int gunLayer = 0;
+
+    // 플래시 이펙트
+    [SerializeField] protected FlashEffect flashEffect;
+
     Rigidbody2D rb;
-
-    [SerializeField] private int hp = 300;
-    private bool isDead = false; // Die 상태를 나타내는 플래그
-
-    [SerializeField] private int gemCount = 0; // 보석 개수 체크
-    [SerializeField] private int AltarCount = 0; // 재단 개수 체크
 
     void Start()
     {
         // 애니메이터 컴포넌트 가져오기
         animator = GetComponent<Animator>();
 
-        // 처음에는 weapon1을 장착
+        // 처음에는 gun1을 장착
         currentGun = gun1;
         gun1.SetActive(true);
+        gun1_Active = 1;
         gun2.SetActive(false);
+        gun2_Active = 0;
+
+        //총1,총2 총확인 
+        Gun ScriptGun1 = gun1.GetComponent<Gun>();
+        ScriptGun1.isPlayerEquip = true;
+        Gun ScriptGun2 = gun2.GetComponent<Gun>();
+        ScriptGun2.isPlayerEquip = true;
 
         rb = GetComponent<Rigidbody2D>();
-        audioSource = GetComponent<AudioSource>(); // AudioSource 가져오기
+
         flashEffect = GetComponent<FlashEffect>();
     }
 
@@ -88,21 +102,21 @@ public class Player : MonoBehaviour
         // 마우스 방향에 따라 적절한 총구 위치 설정
         Vector3 gunPosition = transform.position;
 
-        if (angle > -22.5f && angle <= 22.5f) gunPosition = gunPos_Right.transform.position;
-        else if (angle > 22.5f && angle <= 67.5f) gunPosition = gunPos_UpRight.transform.position;
-        else if (angle > 67.5f && angle <= 90f) gunPosition = gunPos_UpR.transform.position;
-        else if (angle > 90f && angle <= 112.5f) gunPosition = gunPos_UpL.transform.position;
-        else if (angle > 112.5f && angle <= 157.5f) gunPosition = gunPos_UpLeft.transform.position;
-        else if (angle > 157.5f || angle <= -157.5f) gunPosition = gunPos_Left.transform.position;
-        else if (angle > -157.5f && angle <= -112.5f) gunPosition = gunPos_DownLeft.transform.position;
-        else if (angle > -112.5f && angle <= -90f) gunPosition = gunPos_DownL.transform.position;
-        else if (angle > -90f && angle <= -67.5f) gunPosition = gunPos_DownR.transform.position;
-        else if (angle > -67.5f && angle <= -22.5f) gunPosition = gunPos_DownRight.transform.position;
-
-        currentGun.transform.position = gunPosition;
-
         // 총기 방향 반전 (왼쪽을 바라볼 경우 반전 적용)
         currentGun.transform.localScale = mousePos.x < transform.position.x ? new Vector3(1, -1, 1) : new Vector3(1, 1, 1);
+
+        if (angle > -22.5f && angle <= 22.5f) { gunPosition = gunPos_Right.transform.position; gunLayer = 1; }
+        else if (angle > 22.5f && angle <= 67.5f) { gunPosition = gunPos_UpRight.transform.position; gunLayer = 0; }
+        else if (angle > 67.5f && angle <= 90f) { gunPosition = gunPos_UpR.transform.position; gunLayer = 0; }
+        else if (angle > 90f && angle <= 112.5f) { gunPosition = gunPos_UpL.transform.position; gunLayer = 0; }
+        else if (angle > 112.5f && angle <= 157.5f) { gunPosition = gunPos_UpLeft.transform.position; gunLayer = 0; }
+        else if (angle > 157.5f || angle <= -157.5f) { gunPosition = gunPos_Left.transform.position; gunLayer = 0; }
+        else if (angle > -157.5f && angle <= -112.5f) { gunPosition = gunPos_DownLeft.transform.position; gunLayer = 0; }
+        else if (angle > -112.5f && angle <= -90f) { gunPosition = gunPos_DownL.transform.position; gunLayer = 0; }
+        else if (angle > -90f && angle <= -67.5f) { gunPosition = gunPos_DownR.transform.position; gunLayer = 1; }
+        else if (angle > -67.5f && angle <= -22.5f) { gunPosition = gunPos_DownRight.transform.position; gunLayer = 1; }
+
+        currentGun.transform.position = gunPosition;
 
         // 키 입력으로 무기 전환
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -128,12 +142,15 @@ public class Player : MonoBehaviour
 
         // 애니메이션 상태 업데이트
         UpdateAnimation();
+
     }
 
     // 이동 상태에 따른 애니메이션 변경
     void UpdateAnimation()
     {
-        if (movement != Vector2.zero)
+        if (isDashing)
+            animator.Play("Player_Dash");
+        else if (movement != Vector2.zero)
             animator.Play("Player_Walk");
         else
             animator.Play("Player_Idle");
@@ -146,47 +163,192 @@ public class Player : MonoBehaviour
         movement = value.Get<Vector2>();
     }
 
-    void OnInteract(InputValue Button)
+    void OnInteract(InputValue value)
     {
-        // 오브젝트 구역에 들어왔는지, 오브젝트가 저장됐는지 이중체크
-        if (isPlayerinside && currentObject != null)
+        // 오브젝트 구역에 들어왔는지, 오브젝트를 저장됐는지 이중체크
+        if (isPlayerinside_Object && currentObject != null && currentObject.CompareTag("Object"))
         {
-            if (currentObject.CompareTag("Gem"))
-            {
-                gemCount++;
-                isPlayerinside = false;
-                audioSource.PlayOneShot(gemPickupSound);
-                Destroy(currentObject.gameObject);
-            }
-            else if (currentObject.CompareTag("Altar") && gemCount > 0)
-            {
-                // Altar의 불꽃 활성화 함수 호출
-                Altar altarScript = currentObject.GetComponent<Altar>();
-                if (altarScript != null)
-                {
-                    AltarCount++;
-                    gemCount--;
-                    audioSource.PlayOneShot(altarSound);
-                    altarScript.ActivateFlame(); // 불꽃 활성화
-                }
+            Destroy(currentObject.gameObject);
+            currentObject = null; // 저장한 오브젝트 초기화 
+            isPlayerinside_Object = false;
+        }
 
-                isPlayerinside = false;
-                Destroy(currentObject.gameObject);
-            }
-            else if (currentObject.CompareTag("Door") && AltarCount >= 4)
+        if (isPlayerinside_Weapon && currentObject_Weapon != null)
+        {
+            //무기 확인 
+            if (gun1_Active == 1 && gun2_Active == 0)
             {
-                isPlayerinside = false;
-                transform.position = new Vector2(94.5f, 84f);
+                //기존 무기 버리기 
+                Gun ScriptGun = currentGun.GetComponent<Gun>();
+                ScriptGun.isPlayerEquip = false;
+                currentGun.tag = "Weapon";
+                Instantiate(currentGun, transform.position, Quaternion.identity);
+
+                // 오브젝트를 무기로 장착
+                GameObject newWeapon = Instantiate(currentObject_Weapon.gameObject, transform.position, Quaternion.identity);
+                Destroy(currentObject_Weapon.gameObject);
+                gun1.SetActive(false);
+
+
+                // 새로운 무기로 설정
+                gun1 = newWeapon;
+                gun1.tag = "Gun";
+                Gun ScriptGun1 = gun1.GetComponent<Gun>();
+                ScriptGun1.isPlayerEquip = true;
+                gun1.SetActive(false);
+                Debug.Log("무기를 장착했습니다: " + currentGun.name);
+
+                // 현재 오브젝트 초기화              
+                currentObject_Weapon = null; // 저장한 오브젝트 초기화 
+                isPlayerinside_Object = false;
+            }
+
+            if (gun1_Active == 0 && gun2_Active == 1)
+            {
+                // 기존 무기 버리기 
+                Gun ScriptGun = currentGun.GetComponent<Gun>();
+                ScriptGun.isPlayerEquip = false;
+                currentGun.tag = "Weapon";
+                Instantiate(currentGun, transform.position, Quaternion.identity);
+
+                // 오브젝트를 무기로 장착
+                GameObject newWeapon = Instantiate(currentObject_Weapon.gameObject, transform.position, Quaternion.identity);
+                Destroy(currentObject_Weapon.gameObject);
+                gun2.SetActive(false);
+
+                // 새로운 무기로 설정
+                gun2 = newWeapon;
+                gun2.tag = "Gun";
+                Gun ScriptGun2 = gun2.GetComponent<Gun>();
+                ScriptGun2.isPlayerEquip = true;
+                gun2.SetActive(false);
+                Debug.Log("무기를 장착했습니다: " + currentGun.name);
+
+                // 오브젝트 초기화
+                currentObject_Weapon = null;
+                isPlayerinside_Weapon = false; // 상태 초기화
             }
         }
+    }
+
+    void OnSprint(InputValue value)
+    {
+        // 대쉬하는 조건 확인 
+        if (value.isPressed && !isDashing && Time.time >= lastDashTime + dashCooldown)
+        {
+            //코루틴으로 대쉬 사용 
+            StartCoroutine(Dash());
+        }
+        // 대쉬 쿨타임 
+        if (value.isPressed && !isDashing && Time.time < lastDashTime + dashCooldown)
+        {
+            float remainingTime = (lastDashTime + dashCooldown) - Time.time;
+            Debug.Log(remainingTime.ToString("F2") + "초 남았습니다.");
+        }
+
+    }
+
+    // 트리거 영역에 들어갈 때 호출됩니다.
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        // 트리거된 오브젝트의 태그를 확인
+        if (collision.CompareTag("Object"))
+        {
+            Debug.Log("상호작용 가능한 오브젝트와 트리거가 발생했습니다2.");
+            isPlayerinside_Object = true;       //오브젝트 구역 확인
+            currentObject = collision;          //현재 오브젝트에 저장 
+            Debug.Log(isPlayerinside_Object);
+        }
+
+        else if (collision.CompareTag("Weapon"))
+        {
+            Debug.Log("상호작용 가능한 오브젝트와 트리거가 발생했습니다2.");
+            isPlayerinside_Weapon = true;       //오브젝트 구역 확인
+            currentObject_Weapon = collision;          //현재 오브젝트에 저장 
+            Debug.Log(isPlayerinside_Weapon);
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        // 트리거된 오브젝트의 태그를 확인
+        if (collision.CompareTag("Object"))
+        {
+            Debug.Log("상호작용 가능한 오브젝트와 트리거가 발생했습니다3.");
+            isPlayerinside_Object = false;     // 오브젝트 구역 확인 
+            currentObject = null;       // 구역 밖으로 나갔으므로 저장한 오브젝트 삭제
+            Debug.Log(isPlayerinside_Object);
+        }
+        // 트리거된 오브젝트의 태그를 확인
+        else if (collision.CompareTag("Weapon"))
+        {
+            Debug.Log("상호작용 가능한 오브젝트와 트리거가 발생했습니다2.");
+            isPlayerinside_Weapon = false;       //오브젝트 구역 확인
+            currentObject_Weapon = null;          //현재 오브젝트에 저장 
+            Debug.Log(isPlayerinside_Weapon);
+        }
+
+        // 몬스터와의 충돌이 끝남 -> 더 이상 밀리지 않도록 설정
+        if (collision.CompareTag("Monster"))
+        {
+            rb.linearVelocity = Vector2.zero; // 속도를 0으로 만들어 멈추게 함
+        }
+
+    }
+
+    void SwitchGun(int gunNumber)
+    {
+        if (gunNumber == 1)
+        {
+            currentGun.SetActive(false);
+            gun2_Active = 0;
+            currentGun = gun1;
+            currentGun.SetActive(true);
+            gun1_Active = 1;
+        }
+        else if (gunNumber == 2)
+        {
+            if (gun2 != null)
+            {
+                currentGun.SetActive(false);
+                gun1_Active = 0;
+                currentGun = gun2;
+                currentGun.SetActive(true);
+                gun2_Active = 1;
+            }
+            return;
+        }
+    }
+
+    private IEnumerator Dash()
+    {
+        isDashing = true;
+        lastDashTime = Time.time;   // 대쉬를 사용한 시간을 기록
+        animator.Play("Player_Idle");
+
+
+        Vector3 dashDirection = new Vector3(movement.x, movement.y).normalized;
+        Vector3 startPosition = transform.position;
+        Vector3 targetPosition = startPosition + dashDirection * dashDistance;
+
+        float elapsedTime = 0f;
+
+        while (elapsedTime < dashTime)
+        {
+            transform.position = Vector3.Lerp(startPosition, targetPosition, (elapsedTime / dashTime));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        transform.position = targetPosition;
+        isDashing = false;
     }
 
     public void TakeDamage(int damage)
     {
         if (isDead) return;
 
-        hp -= damage;
-        if (hp <= 0)
+        Hp -= damage;
+        if (Hp <= 0)
             Die();
         else
             flashEffect.Flash();
@@ -198,66 +360,7 @@ public class Player : MonoBehaviour
         GetComponent<Collider2D>().isTrigger = true;
         rb.linearVelocity = Vector2.zero;
         rb.bodyType = RigidbodyType2D.Kinematic; // 물리 계산을 멈춤 (완전히 멈추기 위함)
-        animator.Play("Die");
 
-        // Die 애니메이션 끝난 후 Explode 애니메이션 재생
-        StartCoroutine(PlayExplodeAnimation());
-    }
-
-    private IEnumerator PlayExplodeAnimation()
-    {
-        // Die 애니메이션 끝날 때까지 대기
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
-        // 0.8초 대기
-        yield return new WaitForSeconds(0.8f);
-
-        // Explode 애니메이션 시작
-        animator.Play("Explode");
-
-        // Explode 애니메이션 끝난 후 몬스터 삭제
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
-        Destroy(gameObject);
-    }
-
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        // 특정 태그(Gem, Altar, Door)에 들어갔는지 확인
-        if (collision.CompareTag("Gem") || collision.CompareTag("Altar") || collision.CompareTag("Door"))
-        {
-            isPlayerinside = true;
-            currentObject = collision;
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D collision)
-    {
-        // 특정 태그에서 벗어났는지 확인
-        if (collision.CompareTag("Gem") || collision.CompareTag("Altar") || collision.CompareTag("Door"))
-        {
-            isPlayerinside = false;
-            currentObject = null;
-        }
-
-        // 몬스터와의 충돌이 끝남 -> 더 이상 밀리지 않도록 설정
-        if (collision.CompareTag("Monster"))
-        {
-            rb.linearVelocity = Vector2.zero; // 속도를 0으로 만들어 멈추게 함
-        }
-    }
-
-    void SwitchGun(int gunNumber)
-    {
-        if (gunNumber == 1)
-        {
-            currentGun.SetActive(false);
-            currentGun = gun1;
-            currentGun.SetActive(true);
-        }
-        else if (gunNumber == 2)
-        {
-            currentGun.SetActive(false);
-            currentGun = gun2;
-            currentGun.SetActive(true);
-        }
+        // animator.Play("Die");
     }
 }
