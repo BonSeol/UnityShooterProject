@@ -1,20 +1,49 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Gun : MonoBehaviour
 {
-    public GameObject bulletPrefab;  // 총알 프리팹
-    public float bulletSpeed = 10f;  // 총알 속도
-    public GameObject firePos;  // 총알 발사 위치
+    [SerializeField] private GameObject bulletPrefab;  // 총알 프리팹
+    [SerializeField] private float bulletSpeed = 10f;  // 총알 속도
+    [SerializeField] private GameObject firePos;  // 총알 발사 위치
+    public bool isPlayerEquip = false; //총 여부를 확인
+    [SerializeField] private Player Playerscript;
+    [SerializeField] private GameObject Playerobject;
+    [SerializeField] private int gunLayer = 0;
+    [SerializeField] private bool player_interaction;
+    [SerializeField] private AudioClip shootSound; // 발사 소리
+    private AudioSource audioSource; // 오디오 소스 컴포넌트
+
+    void Start()
+    {
+        // 오디오 소스 컴포넌트 가져오기
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
-        // 마우스 위치를 기준으로 총 회전
-        AimAtMouse();
+        gunLayer = Playerscript.gunLayer;
 
-        // 마우스 왼쪽 버튼 클릭 시 총을 쏘기
-        if (Input.GetMouseButtonDown(0)) // 왼쪽 마우스 버튼
+        if (gunLayer == 0)
         {
-            Fire();
+            this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = Playerobject.gameObject.GetComponent<SpriteRenderer>().sortingOrder - 1;
+        }
+        else if (gunLayer == 1)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = Playerobject.gameObject.GetComponent<SpriteRenderer>().sortingOrder + 1;
+        }
+
+        if (isPlayerEquip == true)
+        {
+            // 마우스 위치를 기준으로 총 회전
+            AimAtMouse();
+
+            // 마우스 왼쪽 버튼 클릭 시 총을 쏘기
+            if (Input.GetMouseButtonDown(0)) // 왼쪽 마우스 버튼
+            {
+                if (player_interaction == false)
+                    Fire();
+            }
         }
     }
 
@@ -54,8 +83,10 @@ public class Gun : MonoBehaviour
 
             // 총알 발사
             bulletRb.linearVelocity = fireDirection * bulletSpeed;
+
+            // 발사 소리가 설정되어 있다면 재생
+            if (shootSound != null)
+                audioSource.PlayOneShot(shootSound);
         }
     }
-
-
 }
