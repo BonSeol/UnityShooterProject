@@ -34,8 +34,6 @@ public class Boss1Movement : MonoBehaviour
     public Transform bul2;
     public Transform bul3;
     public Transform bul4;
-    public Transform bul5;
-    public Transform bul6;
     Animator animator;
     // Start is called before the first frame update
     void Start()
@@ -76,7 +74,6 @@ public class Boss1Movement : MonoBehaviour
                 Instantiate(projectile1, bul2.position, Quaternion.identity);
                 Instantiate(projectile1, bul3.position, Quaternion.identity);
                 Instantiate(projectile1, bul4.position, Quaternion.identity);
-                Instantiate(projectile1, bul5.position, Quaternion.identity);
                 timeBtwShots1 = startTimeBtwShots1;
 
             }
