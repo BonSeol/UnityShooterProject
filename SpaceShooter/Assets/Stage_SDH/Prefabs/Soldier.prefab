@@ -113,12 +113,12 @@ MonoBehaviour:
   flashEffect: {fileID: 5633767092800724261}
   bulletSpeed: 6
   followRange: 10
-  shootRange: 7.5
+  shootRange: 8
   moveSpeed: 2.5
   shootYOffset: 1.5
   maxHp: 60
   shootInterval: 0.5
-  shootSound: {fileID: 0}
+  shootSound: {fileID: 8300000, guid: 893051757daf8744ab87c6fc9cf0cf4c, type: 3}
   IsSlowed: 0
 --- !u!114 &5633767092800724261
 MonoBehaviour:
@@ -230,8 +230,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 893051757daf8744ab87c6fc9cf0cf4c, type: 3}
-  m_Resource: {fileID: 8300000, guid: 893051757daf8744ab87c6fc9cf0cf4c, type: 3}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

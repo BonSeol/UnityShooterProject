@@ -251,8 +251,7 @@ public class Boss : Monster
     // 폭발 애니메이션 실행 후 몬스터 삭제
     private IEnumerator PlayExplodeAnimation()
     {
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length); // 죽음 애니메이션 끝날 때까지 대기
-        yield return new WaitForSeconds(0.8f); // 잠시 대기
+        //yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length); // 죽음 애니메이션 끝날 때까지 대기
 
         animator.Play("Explode"); // 폭발 애니메이션
 
