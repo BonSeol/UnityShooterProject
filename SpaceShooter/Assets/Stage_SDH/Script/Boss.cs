@@ -119,7 +119,7 @@ public class Boss : Monster
     private IEnumerator WaitForShootAnimation()
     {
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
-        animator.Play("Idle"); // 대기 상태로 전환
+        //animator.Play("Idle"); // 대기 상태로 전환
     }
 
     // 기본 발사 (플레이어 방향으로 1발)
@@ -232,30 +232,30 @@ public class Boss : Monster
             flashEffect.Flash();
     }
 
-    // 몬스터 죽음 처리
     protected override void Die()
     {
+        if (isDead) return; // 이미 죽었으면 실행하지 않음
+
         isDead = true;
-        GetComponent<Collider2D>().isTrigger = true; // 충돌 처리 비활성화
+        GetComponent<Collider2D>().enabled = false; // 충돌 비활성화
         rb.linearVelocity = Vector2.zero;
-        rb.bodyType = RigidbodyType2D.Kinematic; // 물리 계산 멈춤
+        rb.bodyType = RigidbodyType2D.Kinematic; // 물리 효과 제거
+
         animator.Play("Die");
     }
 
     public void CallExplode()
     {
-        // 죽은 후 폭발 애니메이션 실행
+        //if (!isDead) return; // 이미 삭제된 경우 실행하지 않음
+
         StartCoroutine(PlayExplodeAnimation());
     }
 
-    // 폭발 애니메이션 실행 후 몬스터 삭제
     private IEnumerator PlayExplodeAnimation()
     {
-        //yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length); // 죽음 애니메이션 끝날 때까지 대기
-
-        animator.Play("Explode"); // 폭발 애니메이션
-
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length); // 폭발 애니메이션 끝날 때까지 대기
-        Destroy(gameObject); // 몬스터 객체 삭제
+        animator.Play("Explode"); // 폭발 애니메이션 실행
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length); // 애니메이션 끝까지 대기
+        //yield return new WaitForSeconds(0.8f); // 0.8초 대기
+        Destroy(gameObject); // 보스 삭제
     }
 }

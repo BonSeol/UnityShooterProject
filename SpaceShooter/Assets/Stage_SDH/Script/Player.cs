@@ -329,28 +329,27 @@ public class Player : MonoBehaviour
         Vector3 startPosition = transform.position;
         float maxDistance = dashDistance;
 
-        // Raycast로 충돌 검사
-        RaycastHit2D hit = Physics2D.Raycast(startPosition, dashDirection, dashDistance, LayerMask.GetMask("Wall"));
-        if (hit.collider != null)
-        {
-            maxDistance = hit.distance; // 벽까지의 거리만큼만 이동
-        }
-
         Vector3 targetPosition = startPosition + dashDirection * maxDistance;
 
         float elapsedTime = 0f;
 
         while (elapsedTime < dashTime)
         {
-            transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / dashTime);
+            Vector3 nextPosition = Vector3.Lerp(startPosition, targetPosition, elapsedTime / dashTime);
+
+            // Collider 충돌 감지
+            if (Physics2D.OverlapCircle(nextPosition, 0.2f, LayerMask.GetMask("Wall")))
+            {
+                break; // 충돌하면 대시 즉시 멈춤
+            }
+
+            transform.position = nextPosition;
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        transform.position = targetPosition;
         isDashing = false;
     }
-
 
     public void TakeDamage(int damage)
     {
