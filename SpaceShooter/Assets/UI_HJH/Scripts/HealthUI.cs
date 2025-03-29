@@ -26,8 +26,6 @@ public class HealthUI : MonoBehaviour
         }
         hearts.Clear();
 
-        Debug.Log(heartPrefab.transform.localScale);
-
         // 새로운 하트 추가
         for (int i = 0; i < currentHealth; i++)
         {

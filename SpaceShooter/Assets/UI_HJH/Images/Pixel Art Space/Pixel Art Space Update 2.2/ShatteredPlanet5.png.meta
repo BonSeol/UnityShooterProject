@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ShatteredPlanet5_0: 9204337527661882556
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

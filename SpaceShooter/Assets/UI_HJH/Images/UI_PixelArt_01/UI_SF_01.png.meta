@@ -480,9 +480,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 121
-        y: 67
+        y: 105
         width: 114
-        height: 87
+        height: 49
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -585,6 +585,50 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: UI_SF_01_18
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 67
+        width: 72
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39fede7ffa0e14f48b93a34cd2e490a8
+      internalID: -1903254803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_SF_01_19
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 67
+        width: 41
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63ca53b1229756648a27bf7e119d6f43
+      internalID: -789038235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -609,6 +653,8 @@ TextureImporter:
       UI_SF_01_15: 3685660150968265598
       UI_SF_01_16: -4612671145499688227
       UI_SF_01_17: 1411968452613954731
+      UI_SF_01_18: -1903254803
+      UI_SF_01_19: -789038235
       UI_SF_01_2: 8079783521542455383
       UI_SF_01_3: 7635194228599647629
       UI_SF_01_4: -4914040481277494626
