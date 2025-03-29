@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float moveSpeed = 5.0f;
 
     // 플레이어 HP
-    [SerializeField] private int Hp = 300;
+    [SerializeField] private int Hp = 5;
     private bool isDead = false; // Die 상태를 나타내는 플래그
     
     // 애니메이터 컴포넌트
@@ -142,7 +142,6 @@ public class Player : MonoBehaviour
 
         // 애니메이션 상태 업데이트
         UpdateAnimation();
-
     }
 
     // 이동 상태에 따른 애니메이션 변경
@@ -323,35 +322,46 @@ public class Player : MonoBehaviour
     private IEnumerator Dash()
     {
         isDashing = true;
-        lastDashTime = Time.time;   // 대쉬를 사용한 시간을 기록
-        animator.Play("Player_Idle");
-
+        lastDashTime = Time.time;
+        animator.Play("Player_Dash");
 
         Vector3 dashDirection = new Vector3(movement.x, movement.y).normalized;
         Vector3 startPosition = transform.position;
-        Vector3 targetPosition = startPosition + dashDirection * dashDistance;
+        float maxDistance = dashDistance;
+
+        // Raycast로 충돌 검사
+        RaycastHit2D hit = Physics2D.Raycast(startPosition, dashDirection, dashDistance, LayerMask.GetMask("Wall"));
+        if (hit.collider != null)
+        {
+            maxDistance = hit.distance; // 벽까지의 거리만큼만 이동
+        }
+
+        Vector3 targetPosition = startPosition + dashDirection * maxDistance;
 
         float elapsedTime = 0f;
 
         while (elapsedTime < dashTime)
         {
-            transform.position = Vector3.Lerp(startPosition, targetPosition, (elapsedTime / dashTime));
+            transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / dashTime);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+
         transform.position = targetPosition;
         isDashing = false;
     }
 
+
     public void TakeDamage(int damage)
     {
+        Debug.Log(isDead);
         if (isDead) return;
 
-        Hp -= damage;
+        flashEffect.Flash();
+
+        Hp -= 1; // 하트 한칸씩 감소
         if (Hp <= 0)
-            Die();
-        else
-            flashEffect.Flash();
+            Die(); 
     }
 
     private void Die()
@@ -362,5 +372,6 @@ public class Player : MonoBehaviour
         rb.bodyType = RigidbodyType2D.Kinematic; // 물리 계산을 멈춤 (완전히 멈추기 위함)
 
         // animator.Play("Die");
+        // Destroy(gameObject, 0.2f);
     }
 }

@@ -200,11 +200,12 @@ MonoBehaviour:
   bulletSpeed: 4
   followRange: 3
   shootRange: 10
-  moveSpeed: 3
+  moveSpeed: 1.5
   shootYOffset: 1.5
   maxHp: 50
   shootInterval: 0.4
   shootSound: {fileID: 8300000, guid: a7f831a381516144894c1bb2afa9b053, type: 3}
+  IsSlowed: 0
 --- !u!114 &4151598426701371133
 MonoBehaviour:
   m_ObjectHideFlags: 0
