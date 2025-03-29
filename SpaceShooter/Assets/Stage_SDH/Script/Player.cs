@@ -338,7 +338,7 @@ public class Player : MonoBehaviour
             Vector3 nextPosition = Vector3.Lerp(startPosition, targetPosition, elapsedTime / dashTime);
 
             // Collider 충돌 감지
-            if (Physics2D.OverlapCircle(nextPosition, 0.2f, LayerMask.GetMask("Wall")))
+            if (Physics2D.OverlapCircle(nextPosition, 0.3f, LayerMask.GetMask("Wall")))
             {
                 break; // 충돌하면 대시 즉시 멈춤
             }
