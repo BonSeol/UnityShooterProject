@@ -202,7 +202,7 @@ MonoBehaviour:
   shootRange: 7
   moveSpeed: 3
   shootYOffset: 1.5
-  maxHp: 300
+  maxHp: 2000
   shootInterval: 0.5
   shootSound: {fileID: 8300000, guid: d699f213ce90a984499373f1610266b5, type: 3}
   IsSlowed: 0
