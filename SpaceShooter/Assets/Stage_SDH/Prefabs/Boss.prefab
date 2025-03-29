@@ -199,10 +199,10 @@ MonoBehaviour:
   flashEffect: {fileID: 3662468898226178345}
   bulletSpeed: 5
   followRange: 9
-  shootRange: 7
+  shootRange: 8.5
   moveSpeed: 3
   shootYOffset: 1.5
-  maxHp: 500
+  maxHp: 2000
   shootInterval: 0.5
   shootSound: {fileID: 8300000, guid: d699f213ce90a984499373f1610266b5, type: 3}
   IsSlowed: 0
