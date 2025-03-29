@@ -354,7 +354,6 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        Debug.Log(isDead);
         if (isDead) return;
 
         flashEffect.Flash();
@@ -366,12 +365,14 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
+        /*
         isDead = true;  // Die 상태로 설정
         GetComponent<Collider2D>().isTrigger = true;
         rb.linearVelocity = Vector2.zero;
         rb.bodyType = RigidbodyType2D.Kinematic; // 물리 계산을 멈춤 (완전히 멈추기 위함)
-
+        
         // animator.Play("Die");
         // Destroy(gameObject, 0.2f);
+        */
     }
 }
