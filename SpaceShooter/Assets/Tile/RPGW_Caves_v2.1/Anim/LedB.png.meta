@@ -1035,6 +1035,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
+<<<<<<< HEAD
     nameFileIdTable:
       LedB_0: 2569252010432367805
       LedB_1: 7614643287242884857
@@ -1072,6 +1073,9 @@ TextureImporter:
       LedB_7: 6858932834602166330
       LedB_8: 4965760550497119747
       LedB_9: -7842124787338234221
+=======
+    nameFileIdTable: {}
+>>>>>>> 876e83e6c03bc6fc073bc6e2b3826a25fbac088e
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

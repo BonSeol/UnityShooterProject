@@ -6885,6 +6885,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
+<<<<<<< HEAD
     nameFileIdTable:
       Purple Effect and Bullet 16x16_0: -330686504290200089
       Purple Effect and Bullet 16x16_1: -8752039300726188132
@@ -7156,6 +7157,9 @@ TextureImporter:
       Purple Effect and Bullet 16x16_97: -376050737862477519
       Purple Effect and Bullet 16x16_98: -6271338344689249072
       Purple Effect and Bullet 16x16_99: 4508348792470278060
+=======
+    nameFileIdTable: {}
+>>>>>>> 876e83e6c03bc6fc073bc6e2b3826a25fbac088e
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

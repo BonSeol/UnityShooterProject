@@ -4,11 +4,15 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 28
+<<<<<<< HEAD
 # <<<<<<< PSH
 #   productGUID: a3e9c5b7cb548a24590ea0a0955c8288
 =======
   productGUID: a45e047bb55e2db43be67753a79caf3f
 >>>>>>> main
+=======
+  productGUID: a3e9c5b7cb548a24590ea0a0955c8288
+>>>>>>> 876e83e6c03bc6fc073bc6e2b3826a25fbac088e
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -17,6 +21,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
+<<<<<<< HEAD
 # <<<<<<< PSH
 #   productName: 0331
 #   defaultCursor: {fileID: 0}
@@ -24,6 +29,10 @@ PlayerSettings:
   productName: SpaceShooter
   defaultCursor: {fileID: 2800000, guid: eb3c97af65ec1c041ba020c6727a0dcf, type: 3}
 >>>>>>> main
+=======
+  productName: 0331
+  defaultCursor: {fileID: 0}
+>>>>>>> 876e83e6c03bc6fc073bc6e2b3826a25fbac088e
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
@@ -710,6 +719,7 @@ PlayerSettings:
   webGLWebAssemblyBigInt: 0
   webGLCloseOnQuit: 0
   webWasm2023: 0
+<<<<<<< HEAD
 # <<<<<<< PSH
 #   scriptingDefineSymbols: {}
 =======
@@ -728,6 +738,9 @@ PlayerSettings:
     XboxOne: UNITY_POST_PROCESSING_STACK_V2
     tvOS: UNITY_POST_PROCESSING_STACK_V2
 >>>>>>> main
+=======
+  scriptingDefineSymbols: {}
+>>>>>>> 876e83e6c03bc6fc073bc6e2b3826a25fbac088e
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
@@ -748,6 +761,7 @@ PlayerSettings:
   editorAssembliesCompatibilityLevel: 1
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
+<<<<<<< HEAD
 # <<<<<<< PSH
 #   metroPackageName: 0331
 #   metroPackageVersion: 
@@ -755,11 +769,16 @@ PlayerSettings:
   metroPackageName: SpaceShooter
   metroPackageVersion: 1.0.0.0
 >>>>>>> main
+=======
+  metroPackageName: 0331
+  metroPackageVersion: 
+>>>>>>> 876e83e6c03bc6fc073bc6e2b3826a25fbac088e
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
+<<<<<<< HEAD
 # <<<<<<< PSH
 #   metroApplicationDescription: 0331
 #   wsaImages: {}
@@ -769,6 +788,11 @@ PlayerSettings:
   wsaImages: {}
   metroTileShortName: SpaceShooter
 >>>>>>> main
+=======
+  metroApplicationDescription: 0331
+  wsaImages: {}
+  metroTileShortName: 
+>>>>>>> 876e83e6c03bc6fc073bc6e2b3826a25fbac088e
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
@@ -837,6 +861,7 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
+<<<<<<< HEAD
 # <<<<<<< PSH
 #   cloudProjectId: 2e2cd951-3cc0-4ff5-a352-aefe714d5851
 #   framebufferDepthMemorylessMode: 0
@@ -850,6 +875,13 @@ PlayerSettings:
   projectName: 
   organizationId: 
 >>>>>>> main
+=======
+  cloudProjectId: 2e2cd951-3cc0-4ff5-a352-aefe714d5851
+  framebufferDepthMemorylessMode: 0
+  qualitySettingsNames: []
+  projectName: 0331
+  organizationId: kkqwert882950
+>>>>>>> 876e83e6c03bc6fc073bc6e2b3826a25fbac088e
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
