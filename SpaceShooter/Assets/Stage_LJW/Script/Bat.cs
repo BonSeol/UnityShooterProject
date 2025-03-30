@@ -81,4 +81,10 @@ public class Bat : MonoBehaviour
         GetComponent<Collider2D>().enabled = false; // 충돌 제거
         Destroy(gameObject, 1f); // 1초 후 제거 (애니메이션 시간에 맞춰 조정 가능)
     }
+
+    void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
+
 }

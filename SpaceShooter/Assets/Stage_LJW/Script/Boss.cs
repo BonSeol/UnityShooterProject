@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections;
 
@@ -18,6 +19,8 @@ public class Boss : MonoBehaviour
     private bool isIdle = false; // idle 상태 체크
     private bool isAttacking = false; // 공격 중인지 체크
 
+    public System.Action onDeath;
+
     [Header("Missile Settings")]
     public float Delay = 1f;
     public GameObject missile;
@@ -28,16 +31,16 @@ public class Boss : MonoBehaviour
     public Transform pos2;
     public Transform pos3;
     public Transform pos4;
-    public Transform h1;
-    public Transform h2;
-    public Transform h3;
+    public Transform holePos1;
+    public Transform holePos2;
+    public Transform holePos3;
 
     public void SetWaypoints(Transform[] newWaypoints)
     {
         waypoints = newWaypoints;
     }
 
-        private void Start()
+    private void Start()
     {
         if (animator == null) animator = GetComponent<Animator>();
         currentHP = maxHP;
@@ -56,9 +59,32 @@ public class Boss : MonoBehaviour
                 isAttacking = true;
                 animator.Play("mage_attack1");
             }
+            else
+            {
+                isAttacking = true;
+                animator.Play("mage_attack2");
+            }
         }
 
 
+    }
+
+    public void StartAttack1()
+    {
+        isAttacking = true;
+        Debug.Log("attack2 시작");
+    }
+
+    public void StartAttack2()
+    {
+        isAttacking = true;
+        Debug.Log("attack2 시작");
+    }
+
+    public void EndAttack()
+    {
+        isAttacking = false;
+        Debug.Log("공격 종료");
     }
 
     void CreateMissile()
@@ -76,17 +102,20 @@ public class Boss : MonoBehaviour
 
     }
 
+    public void SetHolePositions(Transform p1, Transform p2, Transform p3)
+    {
+        holePos1 = p1;
+        holePos2 = p2;
+        holePos3 = p3;
+    }
+
     void CreateHole()
     {
-        if (isAttacking)
-        {
-            Instantiate(hole1, h1.position, Quaternion.identity);
-            Instantiate(hole2, h2.position, Quaternion.identity);
-            Instantiate(hole3, h3.position, Quaternion.identity);
-
-            // 재귀 호출
-            Invoke("CreateHole", Delay);
-        }
+        if (!isAttacking) return;
+        
+            Instantiate(hole1, holePos1.position, Quaternion.identity);
+            Instantiate(hole2, holePos2.position, Quaternion.identity);
+            Instantiate(hole3, holePos3.position, Quaternion.identity);
     }
 
     private void OnDrawGizmos()
@@ -158,7 +187,7 @@ public class Boss : MonoBehaviour
 
     IEnumerator ResumeAfterHit()
     {
-        yield return new WaitForSeconds(0.5f); // 히트 애니메이션 대기 시간
+        yield return new WaitForSeconds(0.5f); // Hit 애니메이션 대기 시간
         if (!isDead) StartCoroutine(MoveLoop());
     }
 
@@ -169,7 +198,10 @@ public class Boss : MonoBehaviour
         animator.Play("mage_death");
         StopAllCoroutines(); // 이동 중지
         CancelInvoke("CreateMissile"); // 미사일 생성 중지
-        Destroy(gameObject, 2f); // 2초 후 오브젝트 삭제 (필요하면 수정 가능)
+
+        onDeath?.Invoke();  // 외부에 죽었다고 알림
+
+        Destroy(gameObject, 2f);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

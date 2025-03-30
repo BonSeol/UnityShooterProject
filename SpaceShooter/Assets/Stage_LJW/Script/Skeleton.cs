@@ -3,7 +3,7 @@ using UnityEngine;
 public class Skeleton : MonoBehaviour
 {
     public GameObject target;
-    public float Speed = 3f;
+    public float Speed = 1f;
     public int HP = 30;
     public int damageToPlayer = 3;
     public float attackRange = 1.5f; // 공격 거리
@@ -46,7 +46,7 @@ public class Skeleton : MonoBehaviour
 
         if (distanceToPlayer > stopRange)
         {
-            rb.linearVelocity = dir * Speed; // 플레이어를 향해 이동
+            rb.linearVelocity = dir.normalized * Speed; // 플레이어를 향해 이동
             animator.SetBool("isWalking", true);
         }
         else

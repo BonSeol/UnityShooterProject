@@ -18,12 +18,6 @@ public class BlockPath : MonoBehaviour
             tilemap = GameObject.Find("Tilemap").GetComponent<Tilemap>(); // Tilemap 자동 찾기
 
         col = GetComponent<BoxCollider2D>(); // Collider 가져오기
-
-        if (spawnScript1 == null)
-            spawnScript1 = GameObject.Find("batspawn1").GetComponent<Spawn>(); // batspawn1에서 Spawn 스크립트 가져오기
-
-        if (spawnScript2 == null)
-            spawnScript2 = GameObject.Find("batspawn2").GetComponent<Spawn>(); // batspawn2에서 Spawn 스크립트 가져오기
     }
 
     public void OnTriggerEnter2D(Collider2D collision)

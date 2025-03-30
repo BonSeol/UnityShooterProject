@@ -6,10 +6,16 @@ public class BlockPath1 : MonoBehaviour
     public Tilemap tilemap;  // 타일맵 연결
     public Tile wallTile;    // 벽 타일
     public Tile openTile;    // 원래 길 타일
-    public Spawn Bat1; 
-    public Spawn Bat2; 
-    public Spawn Sk1; 
+
+    public SpawnLastRoom Bat1;
+    public SpawnLastRoom Bat2;
+    public SpawnLastRoom Sk1;
     public BossSpawn bossSpawn; // 보스 스폰 관리 클래스
+
+    [Header("Lazer")]
+    public GameObject lazerPrefab;
+    public Transform[] lazerSpawnPoint;
+    private GameObject lazerInstance; // 생성된 레이저 저장용
 
     private bool isBlocked = false;  // 길이 막혀 있는지 여부
     private BoxCollider2D col;  // Blocker의 Collider
@@ -37,6 +43,21 @@ public class BlockPath1 : MonoBehaviour
                 Bat1.StartSpawning();
                 Bat2.StartSpawning();
                 Sk1.StartSpawning();
+
+                if (lazerPrefab != null)
+                {
+                    lazerInstance = Instantiate(lazerPrefab, Vector3.zero, Quaternion.identity);
+                    Lazer lazerScript = lazerInstance.GetComponent<Lazer>();
+
+                    if (lazerScript != null)
+                    {
+                        lazerScript.spawnPoints = lazerSpawnPoint; // 순서대로 위치 넘김
+                        lazerScript.lazerPrefab = lazerPrefab;
+                        lazerScript.StartLazer();
+
+                        bossSpawn.SetLazerInstance(lazerScript); // 하나만 넘김!
+                    }
+                }
 
                 Invoke("SpawnBoss", 10f); // 10초 후에 보스 스폰
             }
