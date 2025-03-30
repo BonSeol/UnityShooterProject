@@ -11,6 +11,9 @@ TagManager:
   - Door
   - Weapon
   - Object
+  - Bullet
+  - Monster
+  - SpawnManager
   layers:
   - Default
   - TransparentFX

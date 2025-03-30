@@ -3,44 +3,44 @@ using UnityEngine;
 
 public class FlashEffect : MonoBehaviour
 {
-    [SerializeField] private Material flashMaterial; // ±ôºýÀÓ È¿°ú¿¡ »ç¿ëÇÒ ¸ÓÆ¼¸®¾ó
-    [SerializeField] private float duration; // ±ôºýÀÓ Áö¼Ó ½Ã°£
+    [SerializeField] private Material flashMaterial; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½
+    [SerializeField] private float duration; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
 
-    private SpriteRenderer spriteRenderer; // ±ôºýÀÓ È¿°ú¸¦ Àû¿ëÇÒ ½ºÇÁ¶óÀÌÆ® ·»´õ·¯
-    private Material originalMaterial; // ¿ø·¡ »ç¿ë ÁßÀÎ ¸ÓÆ¼¸®¾ó ÀúÀå
-    private Coroutine flashRoutine; // ÇöÀç ½ÇÇà ÁßÀÎ ÄÚ·çÆ¾
+    private SpriteRenderer spriteRenderer; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    private Material originalMaterial; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    private Coroutine flashRoutine; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ú·ï¿½Æ¾
 
     void Start()
     {
-        // ÇöÀç ¿ÀºêÁ§Æ®ÀÇ SpriteRenderer ÄÄÆ÷³ÍÆ®¸¦ °¡Á®¿È
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ SpriteRenderer ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        // ¿ø·¡ »ç¿ëÇÏ´ø ¸ÓÆ¼¸®¾ó ÀúÀå (±ôºýÀÓ È¿°ú ÈÄ º¹¿øÇÏ±â À§ÇÔ)
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¿ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½)
         originalMaterial = spriteRenderer.material;
     }
 
     public void Flash()
     {
-        // ¸¸¾à ÀÌ¹Ì ±ôºýÀÓ ÄÚ·çÆ¾ÀÌ ½ÇÇà ÁßÀÌ¶ó¸é ÁßÁö
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú·ï¿½Æ¾ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (flashRoutine != null)
             StopCoroutine(flashRoutine);
         
-        // »õ·Î¿î ±ôºýÀÓ ÄÚ·çÆ¾ ½ÇÇà ¹× ÀúÀå
+        // ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú·ï¿½Æ¾ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         flashRoutine = StartCoroutine(FlashRoutine());
     }
 
     private IEnumerator FlashRoutine()
     {
-        // ±ôºýÀÓ ¸ÓÆ¼¸®¾ó·Î º¯°æ
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         spriteRenderer.material = flashMaterial;
 
-        // ¼³Á¤µÈ Áö¼Ó ½Ã°£¸¸Å­ ´ë±â
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½Å­ ï¿½ï¿½ï¿½
         yield return new WaitForSeconds(duration);
 
-        // ¿ø·¡ ¸ÓÆ¼¸®¾ó·Î º¹¿ø
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         spriteRenderer.material = originalMaterial;
 
-        // ÄÚ·çÆ¾ ½ÇÇà ¿Ï·á Ç¥½Ã
+        // ï¿½Ú·ï¿½Æ¾ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ Ç¥ï¿½ï¿½
         flashRoutine = null;
     }
 }
