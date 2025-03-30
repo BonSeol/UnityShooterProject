@@ -29,11 +29,7 @@ public class Missile : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            /*PlayerHealth playerHealth = collision.GetComponent<PlayerHealth>();
-            if (playerHealth != null)
-            {
-                playerHealth.TakeDamage(damage); // 플레이어에게 데미지 적용
-            }*/
+            //collision.GetComponent<Player>().TakeDamage(1);
             Destroy(gameObject);
         }
     }

@@ -46,8 +46,7 @@ public class Bat : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            // 플레이어에게 데미지를 주는 로직 (추후 구현 필요)
-            // collision.GetComponent<Player>().TakeDamage(damageToPlayer);
+            //collision.GetComponent<Player>().TakeDamage(1);
             Die();
         }
         else if (collision.CompareTag("Bullet"))

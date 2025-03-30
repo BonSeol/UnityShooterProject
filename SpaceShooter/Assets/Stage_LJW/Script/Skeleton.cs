@@ -83,7 +83,7 @@ public class Skeleton : MonoBehaviour
     {
         if (Vector2.Distance(transform.position, target.transform.position) <= attackRange)
         {
-            // target.GetComponent<Player>().TakeDamage(damageToPlayer);
+            //target.GetComponent<Player>().TakeDamage(1);
         }
     }
 

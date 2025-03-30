@@ -21,7 +21,7 @@ public class Hole : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            // 데미지를 준다면 여기에 Player에 damage 주는 코드
+            //collision.GetComponent<Player>().TakeDamage(1);
             Debug.Log("Player hit by hole");
         }
     }
