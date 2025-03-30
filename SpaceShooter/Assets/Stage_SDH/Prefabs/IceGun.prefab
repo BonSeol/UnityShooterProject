@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1717512698569268554
 Transform:
   m_ObjectHideFlags: 0
@@ -106,7 +106,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 3017617063552991478, guid: eff7c040f038b9048b8d41a527df127f, type: 3}
   bulletSpeed: 10
   firePos: {fileID: 9221276873800604669}
-  isPlayerEquip: 0
+  isPlayerEquip: 1
   Playerscript: {fileID: 0}
   Playerobject: {fileID: 0}
   gunLayer: 0

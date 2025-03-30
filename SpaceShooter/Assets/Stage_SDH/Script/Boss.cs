@@ -57,7 +57,7 @@ public class Boss : Monster
     private void StopMoving()
     {
         rb.linearVelocity = Vector2.zero; // 속도 초기화
-        animator.Play("Idle"); // 대기 애니메이션 실행
+        //animator.Play("Idle"); // 대기 애니메이션 실행
     }
 
     // 플레이어 추적
@@ -119,7 +119,6 @@ public class Boss : Monster
     private IEnumerator WaitForShootAnimation()
     {
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
-        //animator.Play("Idle"); // 대기 상태로 전환
     }
 
     // 기본 발사 (플레이어 방향으로 1발)
@@ -179,7 +178,6 @@ public class Boss : Monster
         }
 
         bulletSpeed = originalBulletSpeed;
-        animator.Play("Idle");
     }
 
     // 연속 사격 (5발)
@@ -199,8 +197,6 @@ public class Boss : Monster
             ShootBullet(direction, bulletPrefab);
             yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
         }
-
-        animator.Play("Idle");
     }
 
     // 스프라이트 방향 전환
@@ -246,8 +242,6 @@ public class Boss : Monster
 
     public void CallExplode()
     {
-        //if (!isDead) return; // 이미 삭제된 경우 실행하지 않음
-
         StartCoroutine(PlayExplodeAnimation());
     }
 
@@ -255,7 +249,6 @@ public class Boss : Monster
     {
         animator.Play("Explode"); // 폭발 애니메이션 실행
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length); // 애니메이션 끝까지 대기
-        //yield return new WaitForSeconds(0.8f); // 0.8초 대기
         Destroy(gameObject); // 보스 삭제
     }
 }
