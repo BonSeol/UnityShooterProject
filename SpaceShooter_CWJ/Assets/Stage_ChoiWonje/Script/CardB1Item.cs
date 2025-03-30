@@ -18,7 +18,7 @@ public class CardB1Item : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && playerInRange)
         {
             Gmscript.CardB1Get = 1;
-            Debug.Log("지하 1층 카드 휙득");
+           //Debug.Log("지하 1층 카드 휙득");
             Destroy(gameObject);
         }
     }
@@ -29,7 +29,7 @@ public class CardB1Item : MonoBehaviour
         {
             playerInRange = true;
 
-            Debug.Log("컨트롤 아이템 범위 안");
+            //Debug.Log("컨트롤 아이템 범위 안");
             EKeyUI_0.SetActive(true); //E 버튼 가이드 UI
         }
     }
@@ -40,19 +40,13 @@ public class CardB1Item : MonoBehaviour
         {
             playerInRange = false;
 
-            Debug.Log("컨트롤 아이템 범위 밖");
+            //Debug.Log("컨트롤 아이템 범위 밖");
 
 
 
             EKeyUI_0.SetActive(false); //E 버튼 가이드 UI
         }
     }
-
-    //public void ShowButton()
-    //{
-
-    //animator.SetBool("Appear",true);
-    //}
 }
 
 

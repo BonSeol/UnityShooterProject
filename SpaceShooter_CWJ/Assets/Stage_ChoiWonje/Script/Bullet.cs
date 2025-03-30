@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour
         if (other.tag == "Enemy")
         {
             // 적에 충돌했을 경우
-            Debug.Log("Enemy Hit!");
+            //Debug.Log("Enemy Hit!");
         }
 
         // 총알이 무엇인가에 충돌하면 총알 삭제

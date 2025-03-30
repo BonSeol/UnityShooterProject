@@ -7,7 +7,8 @@ public class ElevatorButtonUISystem : MonoBehaviour
     public Animator animator;
     public GameObject ElevatorButtonUI_0;
     public GameObject EKeyUI_0;
-    public Gun Gun;
+    public Gun Gun1;
+    public Gun Gun2;
     public bool printUI = false;
     public bool playerInRange;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -29,7 +30,8 @@ public class ElevatorButtonUISystem : MonoBehaviour
                 animator.SetBool("Appear",false);
                 printUI = false;
                 //Cursor.visible = false;
-                Gun.player_interaction = false;
+                Gun1.player_interaction = false;
+                Gun2.player_interaction = false;
             }
             else if(printUI == false)
             {
@@ -38,7 +40,8 @@ public class ElevatorButtonUISystem : MonoBehaviour
                 animator.SetBool("Appear", true);
                 printUI = true;
                 //Cursor.visible = true;
-                Gun.player_interaction = true;
+                Gun1.player_interaction = true;
+                Gun2.player_interaction = true;
             }
 
             Debug.Log("엘리베이터 버튼 상호작용 입력");
@@ -65,7 +68,8 @@ public class ElevatorButtonUISystem : MonoBehaviour
             Debug.Log("엘리베이터  버튼 범위 밖");
             animator.SetBool("Appear", false);
             printUI = false;
-            Gun.player_interaction = false;
+            Gun1.player_interaction = false;
+            Gun2.player_interaction = false;
             EKeyUI_0.SetActive(false); //E 버튼 가이드 UI
         }
     }
