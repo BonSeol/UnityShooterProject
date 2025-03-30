@@ -1,0 +1,984 @@
+fileFormatVersion: 2
+guid: 9bf76d33fe176734186c21071236131d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1189995625973829728
+    second: mobsprite4_explosion_0
+  - first:
+      213: 5516197399718782472
+    second: mobsprite4_explosion_1
+  - first:
+      213: 422910696233710756
+    second: mobsprite4_explosion_2
+  - first:
+      213: -6959163259609989589
+    second: mobsprite4_explosion_3
+  - first:
+      213: -3044266739575022492
+    second: mobsprite4_explosion_4
+  - first:
+      213: 902262288242417010
+    second: mobsprite4_explosion_5
+  - first:
+      213: 5235139139145000831
+    second: mobsprite4_explosion_6
+  - first:
+      213: -5368757984079662796
+    second: mobsprite4_explosion_7
+  - first:
+      213: -9004344081049172945
+    second: mobsprite4_explosion_8
+  - first:
+      213: 3817447511355277061
+    second: mobsprite4_explosion_9
+  - first:
+      213: 2843842440245521413
+    second: mobsprite4_explosion_10
+  - first:
+      213: -3182145880648183880
+    second: mobsprite4_explosion_11
+  - first:
+      213: -1133116244212932332
+    second: mobsprite4_explosion_12
+  - first:
+      213: 7254760986556650630
+    second: mobsprite4_explosion_13
+  - first:
+      213: 8291492613967895428
+    second: mobsprite4_explosion_14
+  - first:
+      213: -5634910841521431497
+    second: mobsprite4_explosion_15
+  - first:
+      213: -9039948373732708016
+    second: mobsprite4_explosion_16
+  - first:
+      213: 67560964730929136
+    second: mobsprite4_explosion_17
+  - first:
+      213: -8937104720587267135
+    second: mobsprite4_explosion_18
+  - first:
+      213: 2577387667268526742
+    second: mobsprite4_explosion_19
+  - first:
+      213: 5531939352581144728
+    second: mobsprite4_explosion_20
+  - first:
+      213: -8598018667410872365
+    second: mobsprite4_explosion_21
+  - first:
+      213: -4086160487279359288
+    second: mobsprite4_explosion_22
+  - first:
+      213: -1167996484994001369
+    second: mobsprite4_explosion_23
+  - first:
+      213: -1164123280991965573
+    second: mobsprite4_explosion_24
+  - first:
+      213: 7428104955578373547
+    second: mobsprite4_explosion_25
+  - first:
+      213: 639720362250074846
+    second: mobsprite4_explosion_26
+  - first:
+      213: 7467527628131228072
+    second: mobsprite4_explosion_27
+  - first:
+      213: 3161677795711834858
+    second: mobsprite4_explosion_28
+  - first:
+      213: 2846768655393839938
+    second: mobsprite4_explosion_29
+  - first:
+      213: -3876416968933101566
+    second: mobsprite4_explosion_30
+  - first:
+      213: 5955314316821000866
+    second: mobsprite4_explosion_31
+  - first:
+      213: -5182075002959323875
+    second: mobsprite4_explosion_32
+  - first:
+      213: 7748200823817188340
+    second: mobsprite4_explosion_33
+  - first:
+      213: -5913645369862314539
+    second: mobsprite4_explosion_34
+  - first:
+      213: 2521921807109646554
+    second: mobsprite4_explosion_35
+  - first:
+      213: -2120013087259169567
+    second: mobsprite4_explosion_36
+  - first:
+      213: 35060627259204015
+    second: mobsprite4_explosion_37
+  - first:
+      213: 5123120812626659093
+    second: mobsprite4_explosion_38
+  - first:
+      213: 3802220735384839753
+    second: mobsprite4_explosion_39
+  - first:
+      213: -497350659077917729
+    second: mobsprite4_explosion_40
+  - first:
+      213: -5140131425069031055
+    second: mobsprite4_explosion_41
+  - first:
+      213: 6067040063570463623
+    second: mobsprite4_explosion_42
+  - first:
+      213: -5024469359112544366
+    second: mobsprite4_explosion_43
+  - first:
+      213: 9013371909165964289
+    second: mobsprite4_explosion_44
+  - first:
+      213: -3015086425245908759
+    second: mobsprite4_explosion_45
+  - first:
+      213: -2756770202553409395
+    second: mobsprite4_explosion_46
+  - first:
+      213: -1334841773399386178
+    second: mobsprite4_explosion_47
+  - first:
+      213: -6159704121106542971
+    second: mobsprite4_explosion_48
+  - first:
+      213: -3989696619470481336
+    second: mobsprite4_explosion_49
+  - first:
+      213: 4168910889660437686
+    second: mobsprite4_explosion_50
+  - first:
+      213: -1541631911624676090
+    second: mobsprite4_explosion_51
+  - first:
+      213: -3056352474483948985
+    second: mobsprite4_explosion_52
+  - first:
+      213: 1724453218399404608
+    second: mobsprite4_explosion_53
+  - first:
+      213: -2578778279208993108
+    second: mobsprite4_explosion_54
+  - first:
+      213: 1816984077751003023
+    second: mobsprite4_explosion_55
+  - first:
+      213: 188959016096013165
+    second: mobsprite4_explosion_56
+  - first:
+      213: -3047502770896040978
+    second: mobsprite4_explosion_57
+  - first:
+      213: -8928571549418420302
+    second: mobsprite4_explosion_58
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mobsprite4_explosion_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1200
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 758e9203bb1f65e498b95a08dd09e654
+      internalID: 1660223896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mobsprite4_explosion_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1200
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 057faf8d6dfe2f94090fab912c1504a3
+      internalID: 1647302084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mobsprite4_explosion_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1200
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7441c83b4b2012c4aab75c9d402b4e04
+      internalID: 1851169201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mobsprite4_explosion_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1200
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae8c83821a0897449a9b45bdaaf8acfe
+      internalID: 1704251228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mobsprite4_explosion_4
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1200
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b3665a04fa4e1745918cc28d3ff3caa
+      internalID: -1956111018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mobsprite4_explosion_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19351a97b9b45c643b61a86eff49a5a2
+      internalID: 1468530790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mobsprite4_explosion_6
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 960
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b99498073eb6cb4eaabdc991240b589
+      internalID: 1451758352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mobsprite4_explosion_7
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 960
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 760aca70019d5b24cb254f5c5b6ba70d
+      internalID: -1762708926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mobsprite4_explosion_8
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 960
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c302f7f432a16f49b2fd136d9445811
+      internalID: 1512689700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mobsprite4_explosion_9
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 960
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58bebbc802cbd6f468efce92eacd17a3
+      internalID: 1141340609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mobsprite4_explosion_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 720
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc4715fc480ecdd4ead0197f93eae89a
+      internalID: 1136362087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mobsprite4_explosion_11
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 720
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8448fda2e7bdd841aa64c484c38c452
+      internalID: 974900178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mobsprite4_explosion_12
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 720
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9d43161d3c09d3469dfd495de5236fd
+      internalID: 1027730861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mobsprite4_explosion_13
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 720
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0a7d83c0256d73488de53d715f3fae6
+      internalID: 406909275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mobsprite4_explosion_14
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 720
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2ef04d663a01ff49b1522708c1e47bd
+      internalID: 37292800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mobsprite4_explosion_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 480
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a2c94d4dd833c94fb7ac2ffd441ac3e
+      internalID: -39362311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mobsprite4_explosion_16
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 480
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 735ec6433e5c2b64382e54c02b3fbccd
+      internalID: -259635779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mobsprite4_explosion_17
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 480
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b84be7f01e31bdc4887485490a3d1d85
+      internalID: 89754662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mobsprite4_explosion_18
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 480
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3625f657192ae84db89a897e049345b
+      internalID: 1691359579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mobsprite4_explosion_19
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 480
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f67a13614a228e48950c5d8b31acc49
+      internalID: 1977546256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mobsprite4_explosion_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 240
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a26817df57352db43aaf710adf3071db
+      internalID: 129012821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mobsprite4_explosion_21
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 240
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34d2c1ea758160f42b83781b6dd2e774
+      internalID: -1430770804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mobsprite4_explosion_22
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 240
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6cc49668e5b6e943a20813e9907a622
+      internalID: 302593253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mobsprite4_explosion_23
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 240
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd55334bd3a368346947c3d77acde517
+      internalID: 919283483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mobsprite4_explosion_24
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 240
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a369e1f8b128874e8b5f5ac77b1ce0f
+      internalID: 162137848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mobsprite4_explosion_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc1bb159ef879954ba80b07aa0d57780
+      internalID: -174371244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mobsprite4_explosion_26
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86502c4260dae1f45bb38ed2a93b69b0
+      internalID: 1511134333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mobsprite4_explosion_27
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff42800b1d751a84f8a8e71f05cc14ef
+      internalID: -92233247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mobsprite4_explosion_28
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eef54f87f72f8142a9135a37b07131c
+      internalID: -1735824938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mobsprite4_explosion_29
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c544d93945a084b4c804ae1508ac4c3d
+      internalID: 1411804548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ad7d0230408bfaa469d65b1786388c34
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      mobsprite4_explosion_0: 1660223896
+      mobsprite4_explosion_1: 1647302084
+      mobsprite4_explosion_10: 1136362087
+      mobsprite4_explosion_11: 974900178
+      mobsprite4_explosion_12: 1027730861
+      mobsprite4_explosion_13: 406909275
+      mobsprite4_explosion_14: 37292800
+      mobsprite4_explosion_15: -39362311
+      mobsprite4_explosion_16: -259635779
+      mobsprite4_explosion_17: 89754662
+      mobsprite4_explosion_18: 1691359579
+      mobsprite4_explosion_19: 1977546256
+      mobsprite4_explosion_2: 1851169201
+      mobsprite4_explosion_20: 129012821
+      mobsprite4_explosion_21: -1430770804
+      mobsprite4_explosion_22: 302593253
+      mobsprite4_explosion_23: 919283483
+      mobsprite4_explosion_24: 162137848
+      mobsprite4_explosion_25: -174371244
+      mobsprite4_explosion_26: 1511134333
+      mobsprite4_explosion_27: -92233247
+      mobsprite4_explosion_28: -1735824938
+      mobsprite4_explosion_29: 1411804548
+      mobsprite4_explosion_3: 1704251228
+      mobsprite4_explosion_4: -1956111018
+      mobsprite4_explosion_5: 1468530790
+      mobsprite4_explosion_6: 1451758352
+      mobsprite4_explosion_7: -1762708926
+      mobsprite4_explosion_8: 1512689700
+      mobsprite4_explosion_9: 1141340609
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

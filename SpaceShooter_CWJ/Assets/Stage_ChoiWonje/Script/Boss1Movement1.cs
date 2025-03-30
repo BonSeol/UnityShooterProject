@@ -36,7 +36,8 @@ public class Boss1Movement : MonoBehaviour
     public Transform bul4;
     public Transform mob1;
     public Transform mob2;
-    Animator animator;
+
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -110,9 +111,13 @@ public class Boss1Movement : MonoBehaviour
         if (other.CompareTag("Bullet"))
         {
             --hp;
-            if (hp<=0)
-                Destroy(gameObject);
+            if (hp==0)
+            {
+                animator.SetTrigger("Death");
+            }
+               
         }
         
     }
+
 }
