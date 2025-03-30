@@ -1,0 +1,754 @@
+fileFormatVersion: 2
+guid: c2e832b3f3a5fb249be0bd16d82c239b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8763579234164532748
+    second: Blue-Blob-Assemble_0
+  - first:
+      213: -3295152641889142572
+    second: Blue-Blob-Assemble_1
+  - first:
+      213: -8836685477631613059
+    second: Blue-Blob-Assemble_2
+  - first:
+      213: -6888762935963878554
+    second: Blue-Blob-Assemble_3
+  - first:
+      213: -412567541016110475
+    second: Blue-Blob-Assemble_4
+  - first:
+      213: -8524336596611318401
+    second: Blue-Blob-Assemble_5
+  - first:
+      213: 3784899705959326416
+    second: Blue-Blob-Assemble_6
+  - first:
+      213: -1050399035857718454
+    second: Blue-Blob-Assemble_7
+  - first:
+      213: 2248324435892577482
+    second: Blue-Blob-Assemble_8
+  - first:
+      213: -7801642338942303869
+    second: Blue-Blob-Assemble_9
+  - first:
+      213: -6039021838539407008
+    second: Blue-Blob-Assemble_10
+  - first:
+      213: -2217960613911432407
+    second: Blue-Blob-Assemble_11
+  - first:
+      213: -4394063833867383083
+    second: Blue-Blob-Assemble_12
+  - first:
+      213: 110687211719490039
+    second: Blue-Blob-Assemble_13
+  - first:
+      213: 7329089579279828641
+    second: Blue-Blob-Assemble_14
+  - first:
+      213: -640803130823197149
+    second: Blue-Blob-Assemble_15
+  - first:
+      213: -310180362734366087
+    second: Blue-Blob-Assemble_16
+  - first:
+      213: -7535998074067511889
+    second: Blue-Blob-Assemble_17
+  - first:
+      213: 938519879222206734
+    second: Blue-Blob-Assemble_18
+  - first:
+      213: 1443779889901203180
+    second: Blue-Blob-Assemble_19
+  - first:
+      213: 9104232726436286550
+    second: Blue-Blob-Assemble_20
+  - first:
+      213: -8316279256858974328
+    second: Blue-Blob-Assemble_21
+  - first:
+      213: -5630162031458352849
+    second: Blue-Blob-Assemble_22
+  - first:
+      213: 9195026206386085357
+    second: Blue-Blob-Assemble_23
+  - first:
+      213: 6535049464986752920
+    second: Blue-Blob-Assemble_24
+  - first:
+      213: 409162880713166852
+    second: Blue-Blob-Assemble_25
+  - first:
+      213: 630056481744585154
+    second: Blue-Blob-Assemble_26
+  - first:
+      213: 7112242661197445068
+    second: Blue-Blob-Assemble_27
+  - first:
+      213: 1662682833032242572
+    second: Blue-Blob-Assemble_28
+  - first:
+      213: 6342697160309301642
+    second: Blue-Blob-Assemble_29
+  - first:
+      213: -433648365161405056
+    second: Blue-Blob-Assemble_30
+  - first:
+      213: -5247276069141171194
+    second: Blue-Blob-Assemble_31
+  - first:
+      213: -7896585406888306013
+    second: Blue-Blob-Assemble_32
+  - first:
+      213: 5060002523611485174
+    second: Blue-Blob-Assemble_33
+  - first:
+      213: -3000016062797118216
+    second: Blue-Blob-Assemble_34
+  - first:
+      213: -4716451014654812881
+    second: Blue-Blob-Assemble_35
+  - first:
+      213: -6161373245715620771
+    second: Blue-Blob-Assemble_36
+  - first:
+      213: -3861847882810878369
+    second: Blue-Blob-Assemble_37
+  - first:
+      213: 1890173097440831636
+    second: Blue-Blob-Assemble_38
+  - first:
+      213: 202104730871571625
+    second: Blue-Blob-Assemble_39
+  - first:
+      213: 6307550007273878774
+    second: Blue-Blob-Assemble_40
+  - first:
+      213: -113216293388447058
+    second: Blue-Blob-Assemble_41
+  - first:
+      213: -5219159398259948076
+    second: Blue-Blob-Assemble_42
+  - first:
+      213: -1148524340089365527
+    second: Blue-Blob-Assemble_43
+  - first:
+      213: -2418274061359419318
+    second: Blue-Blob-Assemble_44
+  - first:
+      213: 1022618086804986602
+    second: Blue-Blob-Assemble_45
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Blue-Blob-Assemble_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c06ed5dc1ec7e9970800000000000000
+      internalID: 8763579234164532748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue-Blob-Assemble_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d8f18371244542d0800000000000000
+      internalID: -3295152641889142572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue-Blob-Assemble_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d772ae97069cd5580800000000000000
+      internalID: -8836685477631613059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue-Blob-Assemble_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66bfef3ab923660a0800000000000000
+      internalID: -6888762935963878554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue-Blob-Assemble_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57ad0efd104464af0800000000000000
+      internalID: -412567541016110475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue-Blob-Assemble_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7dbe1d770973b980800000000000000
+      internalID: -8524336596611318401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue-Blob-Assemble_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d2af24ba3aa68430800000000000000
+      internalID: 3784899705959326416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue-Blob-Assemble_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a43b94364ab3c61f0800000000000000
+      internalID: -1050399035857718454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue-Blob-Assemble_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac4253d8927a33f10800000000000000
+      internalID: 2248324435892577482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue-Blob-Assemble_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38142baa0affab390800000000000000
+      internalID: -7801642338942303869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue-Blob-Assemble_10
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 061480b42a5113ca0800000000000000
+      internalID: -6039021838539407008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue-Blob-Assemble_11
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 923700aa2983831e0800000000000000
+      internalID: -2217960613911432407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue-Blob-Assemble_12
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5de81fd49362503c0800000000000000
+      internalID: -4394063833867383083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue-Blob-Assemble_13
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f9f7bfbe6d398100800000000000000
+      internalID: 110687211719490039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue-Blob-Assemble_14
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a6cdf3242826b560800000000000000
+      internalID: 7329089579279828641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue-Blob-Assemble_15
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32e335892f86b17f0800000000000000
+      internalID: -640803130823197149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue-Blob-Assemble_16
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9729aee7a9402bbf0800000000000000
+      internalID: -310180362734366087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue-Blob-Assemble_17
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa59d27dda1ca6790800000000000000
+      internalID: -7535998074067511889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue-Blob-Assemble_18
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e01aeaf8bda460d00800000000000000
+      internalID: 938519879222206734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue-Blob-Assemble_19
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ceee96f0926590410800000000000000
+      internalID: 1443779889901203180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 7668feb192e2ca546967ea3d8c186c0c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Blue-Blob-Assemble_0: 8763579234164532748
+      Blue-Blob-Assemble_1: -3295152641889142572
+      Blue-Blob-Assemble_10: -6039021838539407008
+      Blue-Blob-Assemble_11: -2217960613911432407
+      Blue-Blob-Assemble_12: -4394063833867383083
+      Blue-Blob-Assemble_13: 110687211719490039
+      Blue-Blob-Assemble_14: 7329089579279828641
+      Blue-Blob-Assemble_15: -640803130823197149
+      Blue-Blob-Assemble_16: -310180362734366087
+      Blue-Blob-Assemble_17: -7535998074067511889
+      Blue-Blob-Assemble_18: 938519879222206734
+      Blue-Blob-Assemble_19: 1443779889901203180
+      Blue-Blob-Assemble_2: -8836685477631613059
+      Blue-Blob-Assemble_3: -6888762935963878554
+      Blue-Blob-Assemble_4: -412567541016110475
+      Blue-Blob-Assemble_5: -8524336596611318401
+      Blue-Blob-Assemble_6: 3784899705959326416
+      Blue-Blob-Assemble_7: -1050399035857718454
+      Blue-Blob-Assemble_8: 2248324435892577482
+      Blue-Blob-Assemble_9: -7801642338942303869
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
