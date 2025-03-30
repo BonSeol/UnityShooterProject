@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+# <<<<<<< PSH
+#   - Weapon
+#   - Wall
+#   - Monster
+#   - Bullet
+#   - Object
+#   - Item
+#   - Gun
+=======
+  - Monster
+  - Wall
+  - Gem
+  - Altar
+  - Door
+  - Weapon
+  - Object
+  - Bullet
+  - Item
+  - Gun
+>>>>>>> main
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Wall
+# <<<<<<< PSH
+#   - Player
+=======
+  - Player
+>>>>>>> main
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+# <<<<<<< PSH
+#   - name: BackGround
+#     uniqueID: 331900241
+#     locked: 0
+=======
+  - name: BackGround
+    uniqueID: 331900241
+    locked: 0
+>>>>>>> main
+  m_RenderingLayers:
+  - Default
