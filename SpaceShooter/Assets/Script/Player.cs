@@ -258,6 +258,24 @@ public class Player : MonoBehaviour
         }
     }
 
+
+    void OnSprint(InputValue value)
+    {
+        // 대쉬하는 조건 확인 
+        if (value.isPressed && !isDashing && Time.time >= lastDashTime + dashCooldown)
+        {
+            //코루틴으로 대쉬 사용 
+            StartCoroutine(Dash());
+        }
+        // 대쉬 쿨타임 
+        if (value.isPressed && !isDashing && Time.time < lastDashTime + dashCooldown)
+        {
+            float remainingTime = (lastDashTime + dashCooldown) - Time.time;
+            Debug.Log(remainingTime.ToString("F2") + "초 남았습니다.");
+        }
+
+    }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         // 트리거된 오브젝트의 태그를 확인

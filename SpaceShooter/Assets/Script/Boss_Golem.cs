@@ -131,6 +131,7 @@ public class Boss_Golem : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die();
+            Destroy(pattern2Object);
             Destroy(gameObject, 3.0f);
         }
     }

@@ -3,37 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags:
-<<<<<<< HEAD
-# <<<<<<< PSH
-#   - Weapon
-#   - Wall
-#   - Monster
-#   - Bullet
-#   - Object
-#   - Item
-#   - Gun
-=======
-  - Monster
-  - Wall
-  - Gem
-  - Altar
-  - Door
-  - Weapon
-  - Object
-  - Bullet
-  - Item
-  - Gun
->>>>>>> main
-=======
-  - Weapon
-  - Wall
-  - Monster
-  - Bullet
-  - Object
-  - Item
-  - Gun
->>>>>>> 876e83e6c03bc6fc073bc6e2b3826a25fbac088e
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -41,16 +11,8 @@ TagManager:
   - 
   - Water
   - UI
-  - Wall
-<<<<<<< HEAD
-# <<<<<<< PSH
-#   - Player
-=======
-  - Player
->>>>>>> main
-=======
-  - Player
->>>>>>> 876e83e6c03bc6fc073bc6e2b3826a25fbac088e
+  - 
+  - 
   - 
   - 
   - 
@@ -79,20 +41,5 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-<<<<<<< HEAD
-# <<<<<<< PSH
-#   - name: BackGround
-#     uniqueID: 331900241
-#     locked: 0
-=======
-  - name: BackGround
-    uniqueID: 331900241
-    locked: 0
->>>>>>> main
-=======
-  - name: BackGround
-    uniqueID: 331900241
-    locked: 0
->>>>>>> 876e83e6c03bc6fc073bc6e2b3826a25fbac088e
   m_RenderingLayers:
   - Default

@@ -6885,7 +6885,6 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-<<<<<<< HEAD
     nameFileIdTable:
       Green Effect and Bullet 16x16_0: 6654006014574398348
       Green Effect and Bullet 16x16_1: -1192404947194042979
@@ -7157,9 +7156,6 @@ TextureImporter:
       Green Effect and Bullet 16x16_97: -6408337067828014476
       Green Effect and Bullet 16x16_98: 5400725492693997556
       Green Effect and Bullet 16x16_99: -2495348675275482557
-=======
-    nameFileIdTable: {}
->>>>>>> 876e83e6c03bc6fc073bc6e2b3826a25fbac088e
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

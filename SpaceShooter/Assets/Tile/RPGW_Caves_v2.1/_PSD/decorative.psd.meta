@@ -2835,7 +2835,6 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-<<<<<<< HEAD
     nameFileIdTable:
       decorative_0: -4751902496367685551
       decorative_1: 3163905203284068580
@@ -2945,9 +2944,6 @@ TextureImporter:
       decorative_97: -9143580426401235352
       decorative_98: 3455933125163599127
       decorative_99: -5284624510018366520
-=======
-    nameFileIdTable: {}
->>>>>>> 876e83e6c03bc6fc073bc6e2b3826a25fbac088e
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
