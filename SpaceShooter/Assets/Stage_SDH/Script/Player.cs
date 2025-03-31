@@ -1,4 +1,4 @@
-﻿/*using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
 
@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     // 플레이어 HP
     [SerializeField] private int Hp = 5;
     private bool isDead = false; // Die 상태를 나타내는 플래그
+    [SerializeField] private HealthUI healthUI; // 체력 UI
 
     // 애니메이터 컴포넌트
     Animator animator;
@@ -54,10 +55,12 @@ public class Player : MonoBehaviour
 
     Rigidbody2D rb;
 
+
     void Start()
     {
         // 애니메이터 컴포넌트 가져오기
         animator = GetComponent<Animator>();
+
 
         // 처음에는 gun1을 장착
         currentGun = gun1;
@@ -357,21 +360,21 @@ public class Player : MonoBehaviour
 
         flashEffect.Flash();
 
-        Hp -= 1; // 하트 한칸씩 감소
+        //healthUI.TakeDamage(1);
+
+       // Hp -= 1; // 하트 한칸씩 감소
         if (Hp <= 0)
             Die();
     }
 
     private void Die()
     {
-        *//*
         isDead = true;  // Die 상태로 설정
         GetComponent<Collider2D>().isTrigger = true;
         rb.linearVelocity = Vector2.zero;
         rb.bodyType = RigidbodyType2D.Kinematic; // 물리 계산을 멈춤 (완전히 멈추기 위함)
         
         // animator.Play("Die");
-        // Destroy(gameObject, 0.2f);
-        *//*
+        Destroy(gameObject, 0.2f);
     }
-}*/
+}

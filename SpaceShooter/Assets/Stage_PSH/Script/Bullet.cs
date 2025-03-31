@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
     public float lifeTime = 5f;  // 총알의 생명 시간
     public float Damage = 1.0f;
 
+
     void Start()
     {
         // 일정 시간 후 총알 삭제
@@ -27,7 +28,8 @@ public class Bullet : MonoBehaviour
             {
                 boss.TakeDamage(Damage); // 몬스터에게 데미지 입히기
             }
-            Destroy(gameObject); // 총알 삭제
+
+            Destroy(gameObject);
         }
 
         if(collision.CompareTag("Wall"))

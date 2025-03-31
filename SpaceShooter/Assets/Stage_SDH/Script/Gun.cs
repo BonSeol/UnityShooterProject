@@ -10,7 +10,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private Player Playerscript;
     [SerializeField] private GameObject Playerobject;
     [SerializeField] private int gunLayer = 0;
-    [SerializeField] private bool player_interaction;
+    public bool player_interaction;
     [SerializeField] private AudioClip shootSound; // 발사 소리
     private AudioSource audioSource; // 오디오 소스 컴포넌트
 

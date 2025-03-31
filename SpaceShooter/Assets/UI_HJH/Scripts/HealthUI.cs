@@ -8,11 +8,13 @@ public class HealthUI : MonoBehaviour
     public int currentHealth; // 현재 체력
     public GameObject heartPrefab; // 하트 프리팹
     public Transform heartContainer; // 하트 UI가 위치할 부모 오브젝트
+    public GameObject GameOverUI; // 게임 오버 UI
 
     private List<GameObject> hearts = new List<GameObject>();
 
     void Start()
     {
+        GameOverUI.SetActive(false);
         currentHealth = 5;
         UpdateHearts();
     }
@@ -38,6 +40,10 @@ public class HealthUI : MonoBehaviour
     {
         currentHealth = Mathf.Max(currentHealth - damage, 0);
         UpdateHearts();
+        if (currentHealth <= 0)
+        {
+            GameOverUI.SetActive(true);
+        }
     }
 
     public void Heal(int amount)

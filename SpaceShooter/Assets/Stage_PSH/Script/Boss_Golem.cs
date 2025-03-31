@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 
 public class Boss_Golem : MonoBehaviour
@@ -28,6 +29,7 @@ public class Boss_Golem : MonoBehaviour
     public float spawnInterval = 2f;  // 오브젝트 소환 주기
     public int numProjectiles = 3;  // 생성할 오브젝트 개수
     private List<GameObject> projectiles = new List<GameObject>();  // 생성된 오브젝트 리스트
+
 
     void Start()
     {
@@ -140,7 +142,7 @@ public class Boss_Golem : MonoBehaviour
     {
         StopAllCoroutines();
         animator.SetTrigger("die");
-        // 추가적으로 사망 로직을 넣을 수 있음
+        SceneManager.LoadScene("Stage_SDH");
     }
 
 

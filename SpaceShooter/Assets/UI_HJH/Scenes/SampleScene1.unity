@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 55633317}
   - component: {fileID: 55633318}
   m_Layer: 0
-  m_Name: MenuManger
+  m_Name: MenuManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -200,9 +200,9 @@ MonoBehaviour:
   weaponPanel: {fileID: 1797487952}
   stageText: {fileID: 1629751634}
   exitButton: {fileID: 897258342}
-  itemSprite: {fileID: 7305243571594733817, guid: 8f3511d6d7b085b429fddfa3c183efca, type: 3}
-  weaponSprite1: {fileID: -5304002192558113093, guid: cdc280bdefab3cc4ca703781785bc8b1, type: 3}
-  weaponSprite2: {fileID: -8779864744065903877, guid: 38543eb545a7e22429b09b2d79a51168, type: 3}
+  audioSource: {fileID: 0}
+  menuOpenSound: {fileID: 0}
+  buttonClickSound: {fileID: 0}
   itemSlotPrefab: {fileID: 1811807150546403904, guid: 5e0d28f770503144fb84605a0d4f6e6b, type: 3}
   weaponSlotPrefab: {fileID: 2391974150800065245, guid: 103ec3d982d0338488bbacb8a3b49a10, type: 3}
 --- !u!1 &110707592
@@ -421,6 +421,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_AssetsPPU: 100
+  m_RefResolutionX: 320
+  m_RefResolutionY: 180
+  m_UpscaleRT: 0
+  m_PixelSnapping: 0
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
 --- !u!114 &188294299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -539,7 +547,7 @@ SpriteRenderer:
   m_Size: {x: 0.5, y: 0.40625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &266707038
@@ -557,6 +565,12 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4981112225755138412, guid: 5dce0637615289d469409fd11b5dbaa0, type: 3}
   bulletSpeed: 10
   firePos: {fileID: 1287385087}
+  isPlayerEquip: 0
+  Playerscript: {fileID: 0}
+  Playerobject: {fileID: 0}
+  gunLayer: 0
+  player_interaction: 0
+  shootSound: {fileID: 0}
 --- !u!1 &425863620
 GameObject:
   m_ObjectHideFlags: 0
@@ -752,7 +766,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  gun: {fileID: 266707034}
+  Hp: 5
+  gun1: {fileID: 0}
+  gun2: {fileID: 0}
   gunPos_Right: {fileID: 696864282}
   gunPos_Left: {fileID: 110707592}
   gunPos_Up: {fileID: 1349414209}
@@ -764,6 +780,15 @@ MonoBehaviour:
   gunPos_UpLeft: {fileID: 1526100670}
   gunPos_DownLeft: {fileID: 425863620}
   gunPos_DownRight: {fileID: 1337169814}
+  isPlayerinside_Object: 0
+  isPlayerinside_Weapon: 0
+  currentObject: {fileID: 0}
+  currentObject_Weapon: {fileID: 0}
+  dashDistance: 5
+  dashTime: 0.2
+  dashCooldown: 3
+  gunLayer: 0
+  flashEffect: {fileID: 0}
 --- !u!114 &576521760
 MonoBehaviour:
   m_ObjectHideFlags: 0

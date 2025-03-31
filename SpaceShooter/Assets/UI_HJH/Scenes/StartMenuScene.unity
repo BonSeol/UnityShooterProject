@@ -235,7 +235,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.7422, y: -273}
+  m_AnchoredPosition: {x: 1.7422, y: -173}
   m_SizeDelta: {x: 554.5685, y: 158.4918}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &170787188
@@ -521,7 +521,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -79.246}
+  m_AnchoredPosition: {x: 0, y: 193}
   m_SizeDelta: {x: 554.5685, y: 158.4918}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &922280068
@@ -618,7 +618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0774c9e1a05bd70489f02559a3504ed8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: SampleScene1
+  sceneName: Stage_PSH
   clickSound: {fileID: 8300000, guid: acad7c41f7d50c548b2435aa671862e2, type: 3}
 --- !u!1 &1000478524
 GameObject:
