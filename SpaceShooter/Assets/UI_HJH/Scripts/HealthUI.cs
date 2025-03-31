@@ -9,6 +9,7 @@ public class HealthUI : MonoBehaviour
     public GameObject heartPrefab; // 하트 프리팹
     public Transform heartContainer; // 하트 UI가 위치할 부모 오브젝트
     public GameObject GameOverUI; // 게임 오버 UI
+    public GameObject ClearUI; // 클리어 UI
 
     private List<GameObject> hearts = new List<GameObject>();
 
