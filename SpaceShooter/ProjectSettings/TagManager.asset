@@ -11,6 +11,15 @@ TagManager:
   - Door
   - Weapon
   - Object
+  - Bullet
+  - Monster
+  - SpawnManager
+  - ElevatorDoor
+  - Door1
+  - Door1(2)
+  - mobProjectile
+  - Gun
+  - Ship
   layers:
   - Default
   - TransparentFX

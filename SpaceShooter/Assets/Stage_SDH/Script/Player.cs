@@ -1,23 +1,24 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
 
 public class Player : MonoBehaviour
 {
-    // ÇÃ·¹ÀÌ¾î ÀÌµ¿ ¼Óµµ
+    // í”Œë ˆì´ì–´ ì´ë™ ì†ë„
     [SerializeField] private float moveSpeed = 5.0f;
 
-    // ÇÃ·¹ÀÌ¾î HP
+    // í”Œë ˆì´ì–´ HP
     [SerializeField] private int Hp = 5;
-    private bool isDead = false; // Die »óÅÂ¸¦ ³ªÅ¸³»´Â ÇÃ·¡±×
-    
-    // ¾Ö´Ï¸ŞÀÌÅÍ ÄÄÆ÷³ÍÆ®
+    private bool isDead = false; // Die ìƒíƒœë¥¼ ë‚˜íƒ€ë‚´ëŠ” í”Œë˜ê·¸
+    [SerializeField] private HealthUI healthUI; // ì²´ë ¥ UI
+
+    // ì• ë‹ˆë©”ì´í„° ì»´í¬ë„ŒíŠ¸
     Animator animator;
 
-    // ÇÃ·¹ÀÌ¾î ÀÌµ¿ ¹æÇâ
+    // í”Œë ˆì´ì–´ ì´ë™ ë°©í–¥
     private Vector2 movement = Vector2.zero;
 
-    // ÃÑ ¹× ÃÑ±¸ À§Ä¡ ¿ÀºêÁ§Æ®
+    // ì´ ë° ì´êµ¬ ìœ„ì¹˜ ì˜¤ë¸Œì íŠ¸
     [SerializeField] private GameObject gun1;
     [SerializeField] private GameObject gun2;
     [SerializeField] private GameObject gunPos_Right;
@@ -32,41 +33,43 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject gunPos_DownLeft;
     [SerializeField] private GameObject gunPos_DownRight;
 
-    public bool isPlayerinside_Object = false; // ¿ÀºêÁ§Æ® ±¸¿ª¿¡ µé¾î°¬´ÂÁö È®ÀÎÇÏ´Â º¯¼ö
-    public bool isPlayerinside_Weapon = false; // ¿ÀºêÁ§Æ® ±¸¿ª¿¡ µé¾î°¬´ÂÁö È®ÀÎÇÏ´Â º¯¼ö
-    public Collider2D currentObject; // ÇöÀç Ãæµ¹ÇÑ ¿ÀºêÁ§Æ®¸¦ ÀúÀåÇÒ º¯¼ö
-    public Collider2D currentObject_Weapon; // ÇöÀç Ãæµ¹ÇÑ ¿ÀºêÁ§Æ®¸¦ ÀúÀåÇÒ º¯¼ö
-    private GameObject currentGun; // ÇöÀç ÀåÂøµÈ ¹«±â
+    public bool isPlayerinside_Object = false; // ì˜¤ë¸Œì íŠ¸ êµ¬ì—­ì— ë“¤ì–´ê°”ëŠ”ì§€ í™•ì¸í•˜ëŠ” ë³€ìˆ˜
+    public bool isPlayerinside_Weapon = false; // ì˜¤ë¸Œì íŠ¸ êµ¬ì—­ì— ë“¤ì–´ê°”ëŠ”ì§€ í™•ì¸í•˜ëŠ” ë³€ìˆ˜
+    public Collider2D currentObject; // í˜„ì¬ ì¶©ëŒí•œ ì˜¤ë¸Œì íŠ¸ë¥¼ ì €ì¥í•  ë³€ìˆ˜
+    public Collider2D currentObject_Weapon; // í˜„ì¬ ì¶©ëŒí•œ ì˜¤ë¸Œì íŠ¸ë¥¼ ì €ì¥í•  ë³€ìˆ˜
+    private GameObject currentGun; // í˜„ì¬ ì¥ì°©ëœ ë¬´ê¸°
 
-    public float dashDistance = 5f; // ´ë½¬ ¼Óµµ 
-    public float dashTime = 0.2f;   // ´ë½¬ÇÏ´Âµ¥ °É¸®´Â½Ã°£
-    public float dashCooldown = 3f; // ´ë½¬ ÄğÅ¸ÀÓ
+    public float dashDistance = 5f; // ëŒ€ì‰¬ ì†ë„ 
+    public float dashTime = 0.2f;   // ëŒ€ì‰¬í•˜ëŠ”ë° ê±¸ë¦¬ëŠ”ì‹œê°„
+    public float dashCooldown = 3f; // ëŒ€ì‰¬ ì¿¨íƒ€ì„
     private bool isDashing = false;
-    private float lastDashTime = 0f; // ¸¶Áö¸· ´ë½¬ ½Ã°£
+    private float lastDashTime = 0f; // ë§ˆì§€ë§‰ ëŒ€ì‰¬ ì‹œê°„
 
     private float gun1_Active = 0;
     private float gun2_Active = 0;
 
     public int gunLayer = 0;
 
-    // ÇÃ·¡½Ã ÀÌÆåÆ®
+    // í”Œë˜ì‹œ ì´í™íŠ¸
     [SerializeField] protected FlashEffect flashEffect;
 
     Rigidbody2D rb;
 
+
     void Start()
     {
-        // ¾Ö´Ï¸ŞÀÌÅÍ ÄÄÆ÷³ÍÆ® °¡Á®¿À±â
+        // ì• ë‹ˆë©”ì´í„° ì»´í¬ë„ŒíŠ¸ ê°€ì ¸ì˜¤ê¸°
         animator = GetComponent<Animator>();
 
-        // Ã³À½¿¡´Â gun1À» ÀåÂø
+
+        // ì²˜ìŒì—ëŠ” gun1ì„ ì¥ì°©
         currentGun = gun1;
         gun1.SetActive(true);
         gun1_Active = 1;
         gun2.SetActive(false);
         gun2_Active = 0;
 
-        //ÃÑ1,ÃÑ2 ÃÑÈ®ÀÎ 
+        //ì´1,ì´2 ì´í™•ì¸ 
         Gun ScriptGun1 = gun1.GetComponent<Gun>();
         ScriptGun1.isPlayerEquip = true;
         Gun ScriptGun2 = gun2.GetComponent<Gun>();
@@ -79,30 +82,30 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        rb.linearVelocity = Vector2.zero; // ÀÌµ¿ ¸ØÃã (¸ó½ºÅÍÇÑÅ× ¹Ğ¸² ¹æÁö)
+        rb.linearVelocity = Vector2.zero; // ì´ë™ ë©ˆì¶¤ (ëª¬ìŠ¤í„°í•œí…Œ ë°€ë¦¼ ë°©ì§€)
 
-        // ¸¶¿ì½º À§Ä¡¸¦ ¿ùµå ÁÂÇ¥·Î º¯È¯
+        // ë§ˆìš°ìŠ¤ ìœ„ì¹˜ë¥¼ ì›”ë“œ ì¢Œí‘œë¡œ ë³€í™˜
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0; // 2D °ÔÀÓÀÌ¹Ç·Î Z°ªÀ» 0À¸·Î °íÁ¤
+        mousePos.z = 0; // 2D ê²Œì„ì´ë¯€ë¡œ Zê°’ì„ 0ìœ¼ë¡œ ê³ ì •
 
-        // ÇÃ·¹ÀÌ¾î¿Í ¸¶¿ì½º °£ ¹æÇâ º¤ÅÍ °è»ê ¹× Á¤±ÔÈ­
+        // í”Œë ˆì´ì–´ì™€ ë§ˆìš°ìŠ¤ ê°„ ë°©í–¥ ë²¡í„° ê³„ì‚° ë° ì •ê·œí™”
         Vector3 direction = mousePos - transform.position;
         direction.Normalize();
 
-        // ¸¶¿ì½º ¹æÇâ¿¡ µû¸¥ È¸Àü °¢µµ °è»ê
+        // ë§ˆìš°ìŠ¤ ë°©í–¥ì— ë”°ë¥¸ íšŒì „ ê°ë„ ê³„ì‚°
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        // ¾Ö´Ï¸ŞÀÌ¼Ç ÆÄ¶ó¹ÌÅÍ ¾÷µ¥ÀÌÆ®
+        // ì• ë‹ˆë©”ì´ì…˜ íŒŒë¼ë¯¸í„° ì—…ë°ì´íŠ¸
         animator.SetFloat("Horizontal", direction.x);
         animator.SetFloat("Vertical", direction.y);
 
-        // ÃÑ È¸Àü ¼³Á¤
+        // ì´ íšŒì „ ì„¤ì •
         currentGun.transform.rotation = Quaternion.Euler(0, 0, angle);
 
-        // ¸¶¿ì½º ¹æÇâ¿¡ µû¶ó ÀûÀıÇÑ ÃÑ±¸ À§Ä¡ ¼³Á¤
+        // ë§ˆìš°ìŠ¤ ë°©í–¥ì— ë”°ë¼ ì ì ˆí•œ ì´êµ¬ ìœ„ì¹˜ ì„¤ì •
         Vector3 gunPosition = transform.position;
 
-        // ÃÑ±â ¹æÇâ ¹İÀü (¿ŞÂÊÀ» ¹Ù¶óº¼ °æ¿ì ¹İÀü Àû¿ë)
+        // ì´ê¸° ë°©í–¥ ë°˜ì „ (ì™¼ìª½ì„ ë°”ë¼ë³¼ ê²½ìš° ë°˜ì „ ì ìš©)
         currentGun.transform.localScale = mousePos.x < transform.position.x ? new Vector3(1, -1, 1) : new Vector3(1, 1, 1);
 
         if (angle > -22.5f && angle <= 22.5f) { gunPosition = gunPos_Right.transform.position; gunLayer = 1; }
@@ -118,7 +121,7 @@ public class Player : MonoBehaviour
 
         currentGun.transform.position = gunPosition;
 
-        // Å° ÀÔ·ÂÀ¸·Î ¹«±â ÀüÈ¯
+        // í‚¤ ì…ë ¥ìœ¼ë¡œ ë¬´ê¸° ì „í™˜
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             SwitchGun(1);
@@ -131,7 +134,7 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        // ÇÃ·¹ÀÌ¾î ÀÌµ¿ Ã³¸®
+        // í”Œë ˆì´ì–´ ì´ë™ ì²˜ë¦¬
         float moveX = moveSpeed * Time.deltaTime * movement.x;
         float moveY = moveSpeed * Time.deltaTime * movement.y;
 
@@ -140,11 +143,11 @@ public class Player : MonoBehaviour
         if (movement != Vector2.zero)
             transform.position = newPosition;
 
-        // ¾Ö´Ï¸ŞÀÌ¼Ç »óÅÂ ¾÷µ¥ÀÌÆ®
+        // ì• ë‹ˆë©”ì´ì…˜ ìƒíƒœ ì—…ë°ì´íŠ¸
         UpdateAnimation();
     }
 
-    // ÀÌµ¿ »óÅÂ¿¡ µû¸¥ ¾Ö´Ï¸ŞÀÌ¼Ç º¯°æ
+    // ì´ë™ ìƒíƒœì— ë”°ë¥¸ ì• ë‹ˆë©”ì´ì…˜ ë³€ê²½
     void UpdateAnimation()
     {
         if (isDashing)
@@ -155,8 +158,8 @@ public class Player : MonoBehaviour
             animator.Play("Player_Idle");
     }
 
-    // Player Input ÄÄÆ÷³ÍÆ®¿¡¼­ Move ÀÔ·ÂÀÌ °¨ÁöµÇ¸é OnMove() ÇÔ¼ö¸¦ ÀÚµ¿À¸·Î È£Ãâ
-    // ÀÔ·Â°ªÀ» ÅëÇØ ÀÌµ¿ ¹æÇâ ¼³Á¤
+    // Player Input ì»´í¬ë„ŒíŠ¸ì—ì„œ Move ì…ë ¥ì´ ê°ì§€ë˜ë©´ OnMove() í•¨ìˆ˜ë¥¼ ìë™ìœ¼ë¡œ í˜¸ì¶œ
+    // ì…ë ¥ê°’ì„ í†µí•´ ì´ë™ ë°©í–¥ ì„¤ì •
     void OnMove(InputValue value)
     {
         movement = value.Get<Vector2>();
@@ -164,133 +167,133 @@ public class Player : MonoBehaviour
 
     void OnInteract(InputValue value)
     {
-        // ¿ÀºêÁ§Æ® ±¸¿ª¿¡ µé¾î¿Ô´ÂÁö, ¿ÀºêÁ§Æ®¸¦ ÀúÀåµÆ´ÂÁö ÀÌÁßÃ¼Å©
+        // ì˜¤ë¸Œì íŠ¸ êµ¬ì—­ì— ë“¤ì–´ì™”ëŠ”ì§€, ì˜¤ë¸Œì íŠ¸ë¥¼ ì €ì¥ëëŠ”ì§€ ì´ì¤‘ì²´í¬
         if (isPlayerinside_Object && currentObject != null && currentObject.CompareTag("Object"))
         {
             Destroy(currentObject.gameObject);
-            currentObject = null; // ÀúÀåÇÑ ¿ÀºêÁ§Æ® ÃÊ±âÈ­ 
+            currentObject = null; // ì €ì¥í•œ ì˜¤ë¸Œì íŠ¸ ì´ˆê¸°í™” 
             isPlayerinside_Object = false;
         }
 
         if (isPlayerinside_Weapon && currentObject_Weapon != null)
         {
-            //¹«±â È®ÀÎ 
+            //ë¬´ê¸° í™•ì¸ 
             if (gun1_Active == 1 && gun2_Active == 0)
             {
-                //±âÁ¸ ¹«±â ¹ö¸®±â 
+                //ê¸°ì¡´ ë¬´ê¸° ë²„ë¦¬ê¸° 
                 Gun ScriptGun = currentGun.GetComponent<Gun>();
                 ScriptGun.isPlayerEquip = false;
                 currentGun.tag = "Weapon";
                 Instantiate(currentGun, transform.position, Quaternion.identity);
 
-                // ¿ÀºêÁ§Æ®¸¦ ¹«±â·Î ÀåÂø
+                // ì˜¤ë¸Œì íŠ¸ë¥¼ ë¬´ê¸°ë¡œ ì¥ì°©
                 GameObject newWeapon = Instantiate(currentObject_Weapon.gameObject, transform.position, Quaternion.identity);
                 Destroy(currentObject_Weapon.gameObject);
                 gun1.SetActive(false);
 
 
-                // »õ·Î¿î ¹«±â·Î ¼³Á¤
+                // ìƒˆë¡œìš´ ë¬´ê¸°ë¡œ ì„¤ì •
                 gun1 = newWeapon;
                 gun1.tag = "Gun";
                 Gun ScriptGun1 = gun1.GetComponent<Gun>();
                 ScriptGun1.isPlayerEquip = true;
                 gun1.SetActive(false);
-                Debug.Log("¹«±â¸¦ ÀåÂøÇß½À´Ï´Ù: " + currentGun.name);
+                Debug.Log("ë¬´ê¸°ë¥¼ ì¥ì°©í–ˆìŠµë‹ˆë‹¤: " + currentGun.name);
 
-                // ÇöÀç ¿ÀºêÁ§Æ® ÃÊ±âÈ­              
-                currentObject_Weapon = null; // ÀúÀåÇÑ ¿ÀºêÁ§Æ® ÃÊ±âÈ­ 
+                // í˜„ì¬ ì˜¤ë¸Œì íŠ¸ ì´ˆê¸°í™”              
+                currentObject_Weapon = null; // ì €ì¥í•œ ì˜¤ë¸Œì íŠ¸ ì´ˆê¸°í™” 
                 isPlayerinside_Object = false;
             }
 
             if (gun1_Active == 0 && gun2_Active == 1)
             {
-                // ±âÁ¸ ¹«±â ¹ö¸®±â 
+                // ê¸°ì¡´ ë¬´ê¸° ë²„ë¦¬ê¸° 
                 Gun ScriptGun = currentGun.GetComponent<Gun>();
                 ScriptGun.isPlayerEquip = false;
                 currentGun.tag = "Weapon";
                 Instantiate(currentGun, transform.position, Quaternion.identity);
 
-                // ¿ÀºêÁ§Æ®¸¦ ¹«±â·Î ÀåÂø
+                // ì˜¤ë¸Œì íŠ¸ë¥¼ ë¬´ê¸°ë¡œ ì¥ì°©
                 GameObject newWeapon = Instantiate(currentObject_Weapon.gameObject, transform.position, Quaternion.identity);
                 Destroy(currentObject_Weapon.gameObject);
                 gun2.SetActive(false);
 
-                // »õ·Î¿î ¹«±â·Î ¼³Á¤
+                // ìƒˆë¡œìš´ ë¬´ê¸°ë¡œ ì„¤ì •
                 gun2 = newWeapon;
                 gun2.tag = "Gun";
                 Gun ScriptGun2 = gun2.GetComponent<Gun>();
                 ScriptGun2.isPlayerEquip = true;
                 gun2.SetActive(false);
-                Debug.Log("¹«±â¸¦ ÀåÂøÇß½À´Ï´Ù: " + currentGun.name);
+                Debug.Log("ë¬´ê¸°ë¥¼ ì¥ì°©í–ˆìŠµë‹ˆë‹¤: " + currentGun.name);
 
-                // ¿ÀºêÁ§Æ® ÃÊ±âÈ­
+                // ì˜¤ë¸Œì íŠ¸ ì´ˆê¸°í™”
                 currentObject_Weapon = null;
-                isPlayerinside_Weapon = false; // »óÅÂ ÃÊ±âÈ­
+                isPlayerinside_Weapon = false; // ìƒíƒœ ì´ˆê¸°í™”
             }
         }
     }
 
     void OnSprint(InputValue value)
     {
-        // ´ë½¬ÇÏ´Â Á¶°Ç È®ÀÎ 
+        // ëŒ€ì‰¬í•˜ëŠ” ì¡°ê±´ í™•ì¸ 
         if (value.isPressed && !isDashing && Time.time >= lastDashTime + dashCooldown)
         {
-            //ÄÚ·çÆ¾À¸·Î ´ë½¬ »ç¿ë 
+            //ì½”ë£¨í‹´ìœ¼ë¡œ ëŒ€ì‰¬ ì‚¬ìš© 
             StartCoroutine(Dash());
         }
-        // ´ë½¬ ÄğÅ¸ÀÓ 
+        // ëŒ€ì‰¬ ì¿¨íƒ€ì„ 
         if (value.isPressed && !isDashing && Time.time < lastDashTime + dashCooldown)
         {
             float remainingTime = (lastDashTime + dashCooldown) - Time.time;
-            Debug.Log(remainingTime.ToString("F2") + "ÃÊ ³²¾Ò½À´Ï´Ù.");
+            Debug.Log(remainingTime.ToString("F2") + "ì´ˆ ë‚¨ì•˜ìŠµë‹ˆë‹¤.");
         }
 
     }
 
-    // Æ®¸®°Å ¿µ¿ª¿¡ µé¾î°¥ ¶§ È£ÃâµË´Ï´Ù.
+    // íŠ¸ë¦¬ê±° ì˜ì—­ì— ë“¤ì–´ê°ˆ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤.
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        // Æ®¸®°ÅµÈ ¿ÀºêÁ§Æ®ÀÇ ÅÂ±×¸¦ È®ÀÎ
+        // íŠ¸ë¦¬ê±°ëœ ì˜¤ë¸Œì íŠ¸ì˜ íƒœê·¸ë¥¼ í™•ì¸
         if (collision.CompareTag("Object"))
         {
-            Debug.Log("»óÈ£ÀÛ¿ë °¡´ÉÇÑ ¿ÀºêÁ§Æ®¿Í Æ®¸®°Å°¡ ¹ß»ıÇß½À´Ï´Ù2.");
-            isPlayerinside_Object = true;       //¿ÀºêÁ§Æ® ±¸¿ª È®ÀÎ
-            currentObject = collision;          //ÇöÀç ¿ÀºêÁ§Æ®¿¡ ÀúÀå 
+            Debug.Log("ìƒí˜¸ì‘ìš© ê°€ëŠ¥í•œ ì˜¤ë¸Œì íŠ¸ì™€ íŠ¸ë¦¬ê±°ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤2.");
+            isPlayerinside_Object = true;       //ì˜¤ë¸Œì íŠ¸ êµ¬ì—­ í™•ì¸
+            currentObject = collision;          //í˜„ì¬ ì˜¤ë¸Œì íŠ¸ì— ì €ì¥ 
             Debug.Log(isPlayerinside_Object);
         }
 
         else if (collision.CompareTag("Weapon"))
         {
-            Debug.Log("»óÈ£ÀÛ¿ë °¡´ÉÇÑ ¿ÀºêÁ§Æ®¿Í Æ®¸®°Å°¡ ¹ß»ıÇß½À´Ï´Ù2.");
-            isPlayerinside_Weapon = true;       //¿ÀºêÁ§Æ® ±¸¿ª È®ÀÎ
-            currentObject_Weapon = collision;          //ÇöÀç ¿ÀºêÁ§Æ®¿¡ ÀúÀå 
+            Debug.Log("ìƒí˜¸ì‘ìš© ê°€ëŠ¥í•œ ì˜¤ë¸Œì íŠ¸ì™€ íŠ¸ë¦¬ê±°ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤2.");
+            isPlayerinside_Weapon = true;       //ì˜¤ë¸Œì íŠ¸ êµ¬ì—­ í™•ì¸
+            currentObject_Weapon = collision;          //í˜„ì¬ ì˜¤ë¸Œì íŠ¸ì— ì €ì¥ 
             Debug.Log(isPlayerinside_Weapon);
         }
     }
 
     public void OnTriggerExit2D(Collider2D collision)
     {
-        // Æ®¸®°ÅµÈ ¿ÀºêÁ§Æ®ÀÇ ÅÂ±×¸¦ È®ÀÎ
+        // íŠ¸ë¦¬ê±°ëœ ì˜¤ë¸Œì íŠ¸ì˜ íƒœê·¸ë¥¼ í™•ì¸
         if (collision.CompareTag("Object"))
         {
-            Debug.Log("»óÈ£ÀÛ¿ë °¡´ÉÇÑ ¿ÀºêÁ§Æ®¿Í Æ®¸®°Å°¡ ¹ß»ıÇß½À´Ï´Ù3.");
-            isPlayerinside_Object = false;     // ¿ÀºêÁ§Æ® ±¸¿ª È®ÀÎ 
-            currentObject = null;       // ±¸¿ª ¹ÛÀ¸·Î ³ª°¬À¸¹Ç·Î ÀúÀåÇÑ ¿ÀºêÁ§Æ® »èÁ¦
+            Debug.Log("ìƒí˜¸ì‘ìš© ê°€ëŠ¥í•œ ì˜¤ë¸Œì íŠ¸ì™€ íŠ¸ë¦¬ê±°ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤3.");
+            isPlayerinside_Object = false;     // ì˜¤ë¸Œì íŠ¸ êµ¬ì—­ í™•ì¸ 
+            currentObject = null;       // êµ¬ì—­ ë°–ìœ¼ë¡œ ë‚˜ê°”ìœ¼ë¯€ë¡œ ì €ì¥í•œ ì˜¤ë¸Œì íŠ¸ ì‚­ì œ
             Debug.Log(isPlayerinside_Object);
         }
-        // Æ®¸®°ÅµÈ ¿ÀºêÁ§Æ®ÀÇ ÅÂ±×¸¦ È®ÀÎ
+        // íŠ¸ë¦¬ê±°ëœ ì˜¤ë¸Œì íŠ¸ì˜ íƒœê·¸ë¥¼ í™•ì¸
         else if (collision.CompareTag("Weapon"))
         {
-            Debug.Log("»óÈ£ÀÛ¿ë °¡´ÉÇÑ ¿ÀºêÁ§Æ®¿Í Æ®¸®°Å°¡ ¹ß»ıÇß½À´Ï´Ù2.");
-            isPlayerinside_Weapon = false;       //¿ÀºêÁ§Æ® ±¸¿ª È®ÀÎ
-            currentObject_Weapon = null;          //ÇöÀç ¿ÀºêÁ§Æ®¿¡ ÀúÀå 
+            Debug.Log("ìƒí˜¸ì‘ìš© ê°€ëŠ¥í•œ ì˜¤ë¸Œì íŠ¸ì™€ íŠ¸ë¦¬ê±°ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤2.");
+            isPlayerinside_Weapon = false;       //ì˜¤ë¸Œì íŠ¸ êµ¬ì—­ í™•ì¸
+            currentObject_Weapon = null;          //í˜„ì¬ ì˜¤ë¸Œì íŠ¸ì— ì €ì¥ 
             Debug.Log(isPlayerinside_Weapon);
         }
 
-        // ¸ó½ºÅÍ¿ÍÀÇ Ãæµ¹ÀÌ ³¡³² -> ´õ ÀÌ»ó ¹Ğ¸®Áö ¾Êµµ·Ï ¼³Á¤
+        // ëª¬ìŠ¤í„°ì™€ì˜ ì¶©ëŒì´ ëë‚¨ -> ë” ì´ìƒ ë°€ë¦¬ì§€ ì•Šë„ë¡ ì„¤ì •
         if (collision.CompareTag("Monster"))
         {
-            rb.linearVelocity = Vector2.zero; // ¼Óµµ¸¦ 0À¸·Î ¸¸µé¾î ¸ØÃß°Ô ÇÔ
+            rb.linearVelocity = Vector2.zero; // ì†ë„ë¥¼ 0ìœ¼ë¡œ ë§Œë“¤ì–´ ë©ˆì¶”ê²Œ í•¨
         }
 
     }
@@ -337,10 +340,10 @@ public class Player : MonoBehaviour
         {
             Vector3 nextPosition = Vector3.Lerp(startPosition, targetPosition, elapsedTime / dashTime);
 
-            // Collider Ãæµ¹ °¨Áö
+            // Collider ì¶©ëŒ ê°ì§€
             if (Physics2D.OverlapCircle(nextPosition, 0.3f, LayerMask.GetMask("Wall")))
             {
-                break; // Ãæµ¹ÇÏ¸é ´ë½Ã Áï½Ã ¸ØÃã
+                break; // ì¶©ëŒí•˜ë©´ ëŒ€ì‹œ ì¦‰ì‹œ ë©ˆì¶¤
             }
 
             transform.position = nextPosition;
@@ -357,21 +360,21 @@ public class Player : MonoBehaviour
 
         flashEffect.Flash();
 
-        Hp -= 1; // ÇÏÆ® ÇÑÄ­¾¿ °¨¼Ò
+        //healthUI.TakeDamage(1);
+
+       // Hp -= 1; // í•˜íŠ¸ í•œì¹¸ì”© ê°ì†Œ
         if (Hp <= 0)
-            Die(); 
+            Die();
     }
 
     private void Die()
     {
-        /*
-        isDead = true;  // Die »óÅÂ·Î ¼³Á¤
+        isDead = true;  // Die ìƒíƒœë¡œ ì„¤ì •
         GetComponent<Collider2D>().isTrigger = true;
         rb.linearVelocity = Vector2.zero;
-        rb.bodyType = RigidbodyType2D.Kinematic; // ¹°¸® °è»êÀ» ¸ØÃã (¿ÏÀüÈ÷ ¸ØÃß±â À§ÇÔ)
+        rb.bodyType = RigidbodyType2D.Kinematic; // ë¬¼ë¦¬ ê³„ì‚°ì„ ë©ˆì¶¤ (ì™„ì „íˆ ë©ˆì¶”ê¸° ìœ„í•¨)
         
         // animator.Play("Die");
-        // Destroy(gameObject, 0.2f);
-        */
+        Destroy(gameObject, 0.2f);
     }
 }

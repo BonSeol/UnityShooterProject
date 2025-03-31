@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Boss : Monster
 {
@@ -238,6 +239,8 @@ public class Boss : Monster
         rb.bodyType = RigidbodyType2D.Kinematic; // 물리 효과 제거
 
         animator.Play("Die");
+
+        SceneManager.LoadScene("Scene_ChoiWonje"); // 씬 전환
     }
 
     public void CallExplode()
